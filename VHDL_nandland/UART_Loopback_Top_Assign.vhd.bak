@@ -1,0 +1,23 @@
+library ieee;
+use ieee.std_logic_1164.all;
+ 
+entity UART_Loopback_Top_Assign is
+  port (
+    -- Main Clock (25 MHz)
+    MAX10_CLK1_50         : in std_logic;
+ 
+    -- UART Data
+    GPIO(0) : in  std_logic;
+    GPIO(1) : out std_logic;
+     
+    -- Segment1 is upper digit, Segment2 is lower digit
+	 HEX0 :out std_logic_vector(7 downto 0);
+	 HEX1 :out std_logic_vector(7 downto 0)
+    );
+end entity UART_Loopback_Top_Assign;
+
+architecture arc of UART_Loopback_Top_Assign is
+begin 
+
+
+end arc;
