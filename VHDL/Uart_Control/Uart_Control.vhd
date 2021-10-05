@@ -87,7 +87,7 @@ architecture RTL of Uart_Control is
 	  port (
 			RTS_X, CTS_C 	:in std_logic;
 			Reset, clk		:in std_logic;
-			rx_dv				:in std_logic;
+			rx_dv, tx_ac	:in std_logic;
 			fifo_f, fifo_e	:in std_logic;
 			wr_en, rd_en	:out std_logic;
 			tx_dv				:out std_logic;
@@ -105,13 +105,13 @@ architecture RTL of Uart_Control is
   
   -- Signal for FIFO
   constant	 g_WIDTH : natural := 8;
-  constant	 g_DEPTH : integer := 3;
+  constant	 g_DEPTH : integer := 8;
   Signal reset, wr_en, rd_en	:std_logic;
   Signal fifo_f, fifo_e			:std_logic;
   signal wr_data, rd_data		:std_logic_vector(g_WIDTH-1 downto 0);
   
   -- Signal for FSM
-  signal Reset_f, tx_dv, rx_dv, tx_done, clk_g		:std_logic;
+  signal Reset_f, tx_dv, rx_dv, tx_done, clk_g, tx_ac		:std_logic;
   signal CTS_C, RTS_C, CTS_X, RTS_X		:std_logic;
   type state_type is (rx, tx, int, tx_ready, idle);
   SIGNAL PS, NS :state_type;
@@ -163,13 +163,14 @@ begin
   con: Controller port map(
 			RTS_X=>RTS_X, CTS_C=>CTS_C,
 			Reset=>Reset_f, clk=>MAX10_CLK1_50,
-			rx_dv=>rx_dv,
+			rx_dv=>rx_dv, tx_ac=>tx_ac,
 			fifo_f=>fifo_f, fifo_e=>fifo_e,
 			wr_en=>wr_en, rd_en=>rd_en,
 			tx_dv=>tx_dv,
 			CTS_X=>LEDR(4), RTS_C=>LEDR(3)
 		 );
    
+	tx_ac <= '1' when tx_done='1' or w_TX_Active='1' else '0';
 	
 	RTS_X <= SW(1);
 	CTS_C <= SW(2);

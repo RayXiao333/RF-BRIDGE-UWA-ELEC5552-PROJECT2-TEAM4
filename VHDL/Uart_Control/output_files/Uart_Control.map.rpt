@@ -1,5 +1,5 @@
 Analysis & Synthesis report for Uart_Control
-Tue Oct 05 01:20:21 2021
+Tue Oct 05 16:25:55 2021
 Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
 
 
@@ -13,21 +13,22 @@ Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
   5. Analysis & Synthesis Source Files Read
   6. Analysis & Synthesis Resource Usage Summary
   7. Analysis & Synthesis Resource Utilization by Entity
-  8. State Machine - |Uart_Control|Controller:con|PS
-  9. State Machine - |Uart_Control|UART_TX:UART_TX_Inst|r_SM_Main
- 10. State Machine - |Uart_Control|UART_RX:UART_RX_Inst|r_SM_Main
- 11. User-Specified and Inferred Latches
- 12. General Register Statistics
- 13. Multiplexer Restructuring Statistics (Restructuring Performed)
- 14. Parameter Settings for User Entity Instance: UART_RX:UART_RX_Inst
- 15. Parameter Settings for User Entity Instance: UART_TX:UART_TX_Inst
- 16. Parameter Settings for User Entity Instance: FIFO_NandLand:fifo_fpga
- 17. Parameter Settings for User Entity Instance: clk_gen:clkgen
- 18. Port Connectivity Checks: "clk_gen:clkgen"
- 19. Port Connectivity Checks: "UART_TX:UART_TX_Inst"
- 20. Post-Synthesis Netlist Statistics for Top Partition
- 21. Elapsed Time Per Partition
- 22. Analysis & Synthesis Messages
+  8. State Machine - |Uart_Control|Controller:con|PS_T
+  9. State Machine - |Uart_Control|Controller:con|PS
+ 10. State Machine - |Uart_Control|UART_TX:UART_TX_Inst|r_SM_Main
+ 11. State Machine - |Uart_Control|UART_RX:UART_RX_Inst|r_SM_Main
+ 12. User-Specified and Inferred Latches
+ 13. Registers Removed During Synthesis
+ 14. General Register Statistics
+ 15. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 16. Parameter Settings for User Entity Instance: UART_RX:UART_RX_Inst
+ 17. Parameter Settings for User Entity Instance: UART_TX:UART_TX_Inst
+ 18. Parameter Settings for User Entity Instance: FIFO_NandLand:fifo_fpga
+ 19. Parameter Settings for User Entity Instance: clk_gen:clkgen
+ 20. Port Connectivity Checks: "clk_gen:clkgen"
+ 21. Post-Synthesis Netlist Statistics for Top Partition
+ 22. Elapsed Time Per Partition
+ 23. Analysis & Synthesis Messages
 
 
 
@@ -53,15 +54,15 @@ refer to the applicable agreement for further details.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +------------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Tue Oct 05 01:20:21 2021       ;
+; Analysis & Synthesis Status        ; Successful - Tue Oct 05 16:25:55 2021       ;
 ; Quartus Prime Version              ; 18.1.0 Build 625 09/12/2018 SJ Lite Edition ;
 ; Revision Name                      ; Uart_Control                                ;
 ; Top-level Entity Name              ; Uart_Control                                ;
 ; Family                             ; MAX 10                                      ;
-; Total logic elements               ; 190                                         ;
-;     Total combinational functions  ; 168                                         ;
-;     Dedicated logic registers      ; 94                                          ;
-; Total registers                    ; 94                                          ;
+; Total logic elements               ; 276                                         ;
+;     Total combinational functions  ; 215                                         ;
+;     Dedicated logic registers      ; 139                                         ;
+; Total registers                    ; 139                                         ;
 ; Total pins                         ; 85                                          ;
 ; Total virtual pins                 ; 0                                           ;
 ; Total memory bits                  ; 0                                           ;
@@ -171,7 +172,8 @@ refer to the applicable agreement for further details.
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
-;     Processors 2-12        ;   0.0%      ;
+;     Processor 2            ;   0.0%      ;
+;     Processors 3-12        ;   0.0%      ;
 +----------------------------+-------------+
 
 
@@ -195,20 +197,20 @@ refer to the applicable agreement for further details.
 +---------------------------------------------+---------------------+
 ; Resource                                    ; Usage               ;
 +---------------------------------------------+---------------------+
-; Estimated Total logic elements              ; 190                 ;
+; Estimated Total logic elements              ; 276                 ;
 ;                                             ;                     ;
-; Total combinational functions               ; 168                 ;
+; Total combinational functions               ; 215                 ;
 ; Logic element usage by number of LUT inputs ;                     ;
-;     -- 4 input functions                    ; 87                  ;
-;     -- 3 input functions                    ; 39                  ;
-;     -- <=2 input functions                  ; 42                  ;
+;     -- 4 input functions                    ; 126                 ;
+;     -- 3 input functions                    ; 36                  ;
+;     -- <=2 input functions                  ; 53                  ;
 ;                                             ;                     ;
 ; Logic elements by mode                      ;                     ;
-;     -- normal mode                          ; 149                 ;
-;     -- arithmetic mode                      ; 19                  ;
+;     -- normal mode                          ; 195                 ;
+;     -- arithmetic mode                      ; 20                  ;
 ;                                             ;                     ;
-; Total registers                             ; 94                  ;
-;     -- Dedicated logic registers            ; 94                  ;
+; Total registers                             ; 139                 ;
+;     -- Dedicated logic registers            ; 139                 ;
 ;     -- I/O registers                        ; 0                   ;
 ;                                             ;                     ;
 ; I/O pins                                    ; 85                  ;
@@ -216,9 +218,9 @@ refer to the applicable agreement for further details.
 ; Embedded Multiplier 9-bit elements          ; 0                   ;
 ;                                             ;                     ;
 ; Maximum fan-out node                        ; MAX10_CLK1_50~input ;
-; Maximum fan-out                             ; 94                  ;
-; Total fan-out                               ; 974                 ;
-; Average fan-out                             ; 2.08                ;
+; Maximum fan-out                             ; 139                 ;
+; Total fan-out                               ; 1282                ;
+; Average fan-out                             ; 2.29                ;
 +---------------------------------------------+---------------------+
 
 
@@ -227,11 +229,11 @@ refer to the applicable agreement for further details.
 +------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+---------------------------------------+---------------+--------------+
 ; Compilation Hierarchy Node   ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; UFM Blocks ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; ADC blocks ; Full Hierarchy Name                   ; Entity Name   ; Library Name ;
 +------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+---------------------------------------+---------------+--------------+
-; |Uart_Control                ; 168 (4)             ; 94 (0)                    ; 0           ; 0          ; 0            ; 0       ; 0         ; 85   ; 0            ; 0          ; |Uart_Control                         ; Uart_Control  ; work         ;
-;    |Controller:con|          ; 12 (12)             ; 7 (7)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |Uart_Control|Controller:con          ; Controller    ; work         ;
-;    |FIFO_NandLand:fifo_fpga| ; 41 (41)             ; 32 (32)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |Uart_Control|FIFO_NandLand:fifo_fpga ; FIFO_NandLand ; work         ;
-;    |UART_RX:UART_RX_Inst|    ; 49 (49)             ; 28 (28)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |Uart_Control|UART_RX:UART_RX_Inst    ; UART_RX       ; work         ;
-;    |UART_TX:UART_TX_Inst|    ; 34 (34)             ; 27 (27)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |Uart_Control|UART_TX:UART_TX_Inst    ; UART_TX       ; work         ;
+; |Uart_Control                ; 215 (4)             ; 139 (0)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 85   ; 0            ; 0          ; |Uart_Control                         ; Uart_Control  ; work         ;
+;    |Controller:con|          ; 13 (13)             ; 8 (8)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |Uart_Control|Controller:con          ; Controller    ; work         ;
+;    |FIFO_NandLand:fifo_fpga| ; 81 (81)             ; 75 (75)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |Uart_Control|FIFO_NandLand:fifo_fpga ; FIFO_NandLand ; work         ;
+;    |UART_RX:UART_RX_Inst|    ; 52 (52)             ; 28 (28)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |Uart_Control|UART_RX:UART_RX_Inst    ; UART_RX       ; work         ;
+;    |UART_TX:UART_TX_Inst|    ; 37 (37)             ; 28 (28)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |Uart_Control|UART_TX:UART_TX_Inst    ; UART_TX       ; work         ;
 ;    |ss_decoder:rx_lower|     ; 7 (7)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |Uart_Control|ss_decoder:rx_lower     ; ss_decoder    ; work         ;
 ;    |ss_decoder:rx_upper|     ; 7 (7)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |Uart_Control|ss_decoder:rx_upper     ; ss_decoder    ; work         ;
 ;    |ss_decoder:tx_lower|     ; 7 (7)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |Uart_Control|ss_decoder:tx_lower     ; ss_decoder    ; work         ;
@@ -241,19 +243,30 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 
 
 Encoding Type:  One-Hot
-+-------------------------------------------------------------------------------------+
-; State Machine - |Uart_Control|Controller:con|PS                                     ;
-+-------------+---------+-------------+-------+---------+-------+------------+--------+
-; Name        ; PS.idle ; PS.tx_ready ; PS.rx ; PS.tx_2 ; PS.tx ; PS.rx_done ; PS.int ;
-+-------------+---------+-------------+-------+---------+-------+------------+--------+
-; PS.int      ; 0       ; 0           ; 0     ; 0       ; 0     ; 0          ; 0      ;
-; PS.rx_done  ; 0       ; 0           ; 0     ; 0       ; 0     ; 1          ; 1      ;
-; PS.tx       ; 0       ; 0           ; 0     ; 0       ; 1     ; 0          ; 1      ;
-; PS.tx_2     ; 0       ; 0           ; 0     ; 1       ; 0     ; 0          ; 1      ;
-; PS.rx       ; 0       ; 0           ; 1     ; 0       ; 0     ; 0          ; 1      ;
-; PS.tx_ready ; 0       ; 1           ; 0     ; 0       ; 0     ; 0          ; 1      ;
-; PS.idle     ; 1       ; 0           ; 0     ; 0       ; 0     ; 0          ; 1      ;
-+-------------+---------+-------------+-------+---------+-------+------------+--------+
++----------------------------------------------------------------------------+
+; State Machine - |Uart_Control|Controller:con|PS_T                          ;
++---------------+-----------+---------------+---------+-----------+----------+
+; Name          ; PS_T.idle ; PS_T.tx_ready ; PS_T.tx ; PS_T.tx_2 ; PS_T.int ;
++---------------+-----------+---------------+---------+-----------+----------+
+; PS_T.int      ; 0         ; 0             ; 0       ; 0         ; 0        ;
+; PS_T.tx_2     ; 0         ; 0             ; 0       ; 1         ; 1        ;
+; PS_T.tx       ; 0         ; 0             ; 1       ; 0         ; 1        ;
+; PS_T.tx_ready ; 0         ; 1             ; 0       ; 0         ; 1        ;
+; PS_T.idle     ; 1         ; 0             ; 0       ; 0         ; 1        ;
++---------------+-----------+---------------+---------+-----------+----------+
+
+
+Encoding Type:  One-Hot
++----------------------------------------------------+
+; State Machine - |Uart_Control|Controller:con|PS    ;
++------------+---------+-------+------------+--------+
+; Name       ; PS.idle ; PS.rx ; PS.rx_done ; PS.int ;
++------------+---------+-------+------------+--------+
+; PS.int     ; 0       ; 0     ; 0          ; 0      ;
+; PS.rx_done ; 0       ; 0     ; 1          ; 1      ;
+; PS.rx      ; 0       ; 1     ; 0          ; 1      ;
+; PS.idle    ; 1       ; 0     ; 0          ; 1      ;
++------------+---------+-------+------------+--------+
 
 
 Encoding Type:  One-Hot
@@ -289,12 +302,22 @@ Encoding Type:  One-Hot
 +----------------------------------------------------+--------------------------+------------------------+
 ; Latch Name                                         ; Latch Enable Signal      ; Free of Timing Hazards ;
 +----------------------------------------------------+--------------------------+------------------------+
-; Controller:con|rd_en                               ; Controller:con|Selector0 ; yes                    ;
 ; Controller:con|wr_en                               ; GND                      ; yes                    ;
-; Controller:con|tx_dv                               ; Controller:con|tx_dv     ; yes                    ;
+; Controller:con|rd_en                               ; Controller:con|Selector0 ; yes                    ;
+; Controller:con|tx_dv                               ; Controller:con|Selector2 ; yes                    ;
 ; Number of user-specified and inferred latches = 3  ;                          ;                        ;
 +----------------------------------------------------+--------------------------+------------------------+
 Note: All latches listed above may not be present at the end of synthesis due to various synthesis optimizations.
+
+
++---------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                        ;
++---------------------------------------+-----------------------------------+
+; Register name                         ; Reason for Removal                ;
++---------------------------------------+-----------------------------------+
+; Controller:con|PS_T.int               ; Merged with Controller:con|PS.int ;
+; Total Number of Removed Registers = 1 ;                                   ;
++---------------------------------------+-----------------------------------+
 
 
 +------------------------------------------------------+
@@ -302,12 +325,12 @@ Note: All latches listed above may not be present at the end of synthesis due to
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 94    ;
-; Number of registers using Synchronous Clear  ; 21    ;
+; Total registers                              ; 139   ;
+; Number of registers using Synchronous Clear  ; 25    ;
 ; Number of registers using Synchronous Load   ; 0     ;
-; Number of registers using Asynchronous Clear ; 7     ;
+; Number of registers using Asynchronous Clear ; 8     ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 57    ;
+; Number of registers using Clock Enable       ; 101   ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
@@ -317,21 +340,26 @@ Note: All latches listed above may not be present at the end of synthesis due to
 +--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------------------+
 ; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                              ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------------------+
-; 3:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |Uart_Control|FIFO_NandLand:fifo_fpga|r_FIFO_DATA[0][7] ;
-; 3:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |Uart_Control|FIFO_NandLand:fifo_fpga|r_FIFO_DATA[1][7] ;
-; 3:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |Uart_Control|FIFO_NandLand:fifo_fpga|r_FIFO_DATA[2][1] ;
-; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |Uart_Control|FIFO_NandLand:fifo_fpga|r_FIFO_COUNT[2]   ;
-; 4:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; Yes        ; |Uart_Control|FIFO_NandLand:fifo_fpga|r_RD_INDEX[1]     ;
-; 4:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; Yes        ; |Uart_Control|FIFO_NandLand:fifo_fpga|r_WR_INDEX[0]     ;
-; 4:1                ; 9 bits    ; 18 LEs        ; 9 LEs                ; 9 LEs                  ; Yes        ; |Uart_Control|UART_TX:UART_TX_Inst|r_Clk_Count[0]       ;
-; 7:1                ; 9 bits    ; 36 LEs        ; 9 LEs                ; 27 LEs                 ; Yes        ; |Uart_Control|UART_RX:UART_RX_Inst|r_Clk_Count[3]       ;
-; 3:1                ; 8 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; No         ; |Uart_Control|FIFO_NandLand:fifo_fpga|Mux4              ;
+; 3:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |Uart_Control|FIFO_NandLand:fifo_fpga|r_FIFO_DATA[0][6] ;
+; 3:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |Uart_Control|FIFO_NandLand:fifo_fpga|r_FIFO_DATA[1][6] ;
+; 3:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |Uart_Control|FIFO_NandLand:fifo_fpga|r_FIFO_DATA[2][2] ;
+; 3:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |Uart_Control|FIFO_NandLand:fifo_fpga|r_FIFO_DATA[3][6] ;
+; 3:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |Uart_Control|FIFO_NandLand:fifo_fpga|r_FIFO_DATA[4][7] ;
+; 3:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |Uart_Control|FIFO_NandLand:fifo_fpga|r_FIFO_DATA[5][5] ;
+; 3:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |Uart_Control|FIFO_NandLand:fifo_fpga|r_FIFO_DATA[6][5] ;
+; 3:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |Uart_Control|FIFO_NandLand:fifo_fpga|r_FIFO_DATA[7][3] ;
+; 3:1                ; 5 bits    ; 10 LEs        ; 5 LEs                ; 5 LEs                  ; Yes        ; |Uart_Control|FIFO_NandLand:fifo_fpga|r_FIFO_COUNT[1]   ;
+; 4:1                ; 3 bits    ; 6 LEs         ; 3 LEs                ; 3 LEs                  ; Yes        ; |Uart_Control|FIFO_NandLand:fifo_fpga|r_RD_INDEX[2]     ;
+; 4:1                ; 3 bits    ; 6 LEs         ; 3 LEs                ; 3 LEs                  ; Yes        ; |Uart_Control|FIFO_NandLand:fifo_fpga|r_WR_INDEX[2]     ;
+; 4:1                ; 9 bits    ; 18 LEs        ; 9 LEs                ; 9 LEs                  ; Yes        ; |Uart_Control|UART_TX:UART_TX_Inst|r_Clk_Count[5]       ;
+; 7:1                ; 9 bits    ; 36 LEs        ; 9 LEs                ; 27 LEs                 ; Yes        ; |Uart_Control|UART_RX:UART_RX_Inst|r_Clk_Count[1]       ;
 ; 3:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |Uart_Control|UART_TX:UART_TX_Inst|r_Bit_Index          ;
 ; 3:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |Uart_Control|UART_RX:UART_RX_Inst|r_Bit_Index          ;
+; 8:1                ; 8 bits    ; 40 LEs        ; 40 LEs               ; 0 LEs                  ; No         ; |Uart_Control|FIFO_NandLand:fifo_fpga|Mux3              ;
 ; 16:1               ; 2 bits    ; 20 LEs        ; 16 LEs               ; 4 LEs                  ; No         ; |Uart_Control|ss_decoder:rx_lower|ssd_out[6]            ;
 ; 16:1               ; 2 bits    ; 20 LEs        ; 20 LEs               ; 0 LEs                  ; No         ; |Uart_Control|ss_decoder:rx_upper|ssd_out[6]            ;
-; 16:1               ; 2 bits    ; 20 LEs        ; 20 LEs               ; 0 LEs                  ; No         ; |Uart_Control|ss_decoder:tx_lower|ssd_out[3]            ;
-; 16:1               ; 2 bits    ; 20 LEs        ; 20 LEs               ; 0 LEs                  ; No         ; |Uart_Control|ss_decoder:tx_upper|ssd_out[6]            ;
+; 16:1               ; 2 bits    ; 20 LEs        ; 20 LEs               ; 0 LEs                  ; No         ; |Uart_Control|ss_decoder:tx_lower|ssd_out[6]            ;
+; 16:1               ; 2 bits    ; 20 LEs        ; 20 LEs               ; 0 LEs                  ; No         ; |Uart_Control|ss_decoder:tx_upper|ssd_out[3]            ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------------------+
 
 
@@ -361,7 +389,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 ; Parameter Name ; Value ; Type                                        ;
 +----------------+-------+---------------------------------------------+
 ; g_width        ; 8     ; Signed Integer                              ;
-; g_depth        ; 3     ; Signed Integer                              ;
+; g_depth        ; 8     ; Signed Integer                              ;
 +----------------+-------+---------------------------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
@@ -388,40 +416,31 @@ Note: In order to hide this table in the UI and the text report file, please set
 +------+--------+----------+-------------------------------------------------------------------------------------+
 
 
-+---------------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "UART_TX:UART_TX_Inst"                                                                    ;
-+-----------+--------+----------+-------------------------------------------------------------------------------------+
-; Port      ; Type   ; Severity ; Details                                                                             ;
-+-----------+--------+----------+-------------------------------------------------------------------------------------+
-; o_tx_done ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-+-----------+--------+----------+-------------------------------------------------------------------------------------+
-
-
 +-----------------------------------------------------+
 ; Post-Synthesis Netlist Statistics for Top Partition ;
 +-----------------------+-----------------------------+
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
 ; boundary_port         ; 85                          ;
-; cycloneiii_ff         ; 94                          ;
-;     CLR               ; 7                           ;
-;     ENA               ; 36                          ;
-;     ENA SCLR          ; 21                          ;
+; cycloneiii_ff         ; 139                         ;
+;     CLR               ; 8                           ;
+;     ENA               ; 76                          ;
+;     ENA SCLR          ; 25                          ;
 ;     plain             ; 30                          ;
 ; cycloneiii_io_obuf    ; 36                          ;
-; cycloneiii_lcell_comb ; 170                         ;
-;     arith             ; 19                          ;
+; cycloneiii_lcell_comb ; 217                         ;
+;     arith             ; 20                          ;
 ;         2 data inputs ; 17                          ;
-;         3 data inputs ; 2                           ;
-;     normal            ; 151                         ;
+;         3 data inputs ; 3                           ;
+;     normal            ; 197                         ;
 ;         0 data inputs ; 1                           ;
 ;         1 data inputs ; 3                           ;
-;         2 data inputs ; 23                          ;
-;         3 data inputs ; 37                          ;
-;         4 data inputs ; 87                          ;
+;         2 data inputs ; 34                          ;
+;         3 data inputs ; 33                          ;
+;         4 data inputs ; 126                         ;
 ;                       ;                             ;
 ; Max LUT depth         ; 5.00                        ;
-; Average LUT depth     ; 2.26                        ;
+; Average LUT depth     ; 2.61                        ;
 +-----------------------+-----------------------------+
 
 
@@ -440,9 +459,8 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
-    Info: Processing started: Tue Oct 05 01:20:10 2021
+    Info: Processing started: Tue Oct 05 16:25:44 2021
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off Uart_Control -c Uart_Control
-Info (125069): Default assignment values were changed in the current version of the Quartus Prime software -- changes to default assignments values are contained in file c:/intelfpga_lite/18.1/quartus/bin64/assignment_defaults.qdf
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 12 of the 12 processors detected
 Info (12021): Found 2 design units, including 1 entities, in source file clk_gen.vhd
@@ -469,7 +487,6 @@ Info (12021): Found 2 design units, including 1 entities, in source file control
     Info (12022): Found design unit 1: Controller-RTL File: C:/Users/XORID/OneDrive - The University of Western Australia/21, M2-Win/ELEC5552 Elctrial Project/Code/Uart_Control/Controller.vhd Line: 18
     Info (12023): Found entity 1: Controller File: C:/Users/XORID/OneDrive - The University of Western Australia/21, M2-Win/ELEC5552 Elctrial Project/Code/Uart_Control/Controller.vhd Line: 5
 Info (12127): Elaborating entity "Uart_Control" for the top level hierarchy
-Warning (10036): Verilog HDL or VHDL warning at Uart_Control.vhd(114): object "tx_done" assigned a value but never read File: C:/Users/XORID/OneDrive - The University of Western Australia/21, M2-Win/ELEC5552 Elctrial Project/Code/Uart_Control/Uart_Control.vhd Line: 114
 Warning (10036): Verilog HDL or VHDL warning at Uart_Control.vhd(114): object "clk_g" assigned a value but never read File: C:/Users/XORID/OneDrive - The University of Western Australia/21, M2-Win/ELEC5552 Elctrial Project/Code/Uart_Control/Uart_Control.vhd Line: 114
 Warning (10873): Using initial value X (don't care) for net "LEDR[2..0]" at Uart_Control.vhd(21) File: C:/Users/XORID/OneDrive - The University of Western Australia/21, M2-Win/ELEC5552 Elctrial Project/Code/Uart_Control/Uart_Control.vhd Line: 21
 Info (12128): Elaborating entity "UART_RX" for hierarchy "UART_RX:UART_RX_Inst" File: C:/Users/XORID/OneDrive - The University of Western Australia/21, M2-Win/ELEC5552 Elctrial Project/Code/Uart_Control/Uart_Control.vhd Line: 122
@@ -480,19 +497,21 @@ Info (12128): Elaborating entity "clk_gen" for hierarchy "clk_gen:clkgen" File: 
 Info (12128): Elaborating entity "Controller" for hierarchy "Controller:con" File: C:/Users/XORID/OneDrive - The University of Western Australia/21, M2-Win/ELEC5552 Elctrial Project/Code/Uart_Control/Uart_Control.vhd Line: 163
 Warning (10541): VHDL Signal Declaration warning at Controller.vhd(13): used implicit default value for signal "CTS_X" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: C:/Users/XORID/OneDrive - The University of Western Australia/21, M2-Win/ELEC5552 Elctrial Project/Code/Uart_Control/Controller.vhd Line: 13
 Warning (10541): VHDL Signal Declaration warning at Controller.vhd(13): used implicit default value for signal "RTS_C" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: C:/Users/XORID/OneDrive - The University of Western Australia/21, M2-Win/ELEC5552 Elctrial Project/Code/Uart_Control/Controller.vhd Line: 13
-Warning (10492): VHDL Process Statement warning at Controller.vhd(27): signal "Reset" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/XORID/OneDrive - The University of Western Australia/21, M2-Win/ELEC5552 Elctrial Project/Code/Uart_Control/Controller.vhd Line: 27
-Warning (10492): VHDL Process Statement warning at Controller.vhd(33): signal "PS" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/XORID/OneDrive - The University of Western Australia/21, M2-Win/ELEC5552 Elctrial Project/Code/Uart_Control/Controller.vhd Line: 33
-Warning (10492): VHDL Process Statement warning at Controller.vhd(52): signal "RTS_X" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/XORID/OneDrive - The University of Western Australia/21, M2-Win/ELEC5552 Elctrial Project/Code/Uart_Control/Controller.vhd Line: 52
-Warning (10492): VHDL Process Statement warning at Controller.vhd(52): signal "fifo_f" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/XORID/OneDrive - The University of Western Australia/21, M2-Win/ELEC5552 Elctrial Project/Code/Uart_Control/Controller.vhd Line: 52
-Warning (10492): VHDL Process Statement warning at Controller.vhd(54): signal "CTS_C" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/XORID/OneDrive - The University of Western Australia/21, M2-Win/ELEC5552 Elctrial Project/Code/Uart_Control/Controller.vhd Line: 54
-Warning (10492): VHDL Process Statement warning at Controller.vhd(54): signal "fifo_e" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/XORID/OneDrive - The University of Western Australia/21, M2-Win/ELEC5552 Elctrial Project/Code/Uart_Control/Controller.vhd Line: 54
-Warning (10492): VHDL Process Statement warning at Controller.vhd(60): signal "rx_dv" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/XORID/OneDrive - The University of Western Australia/21, M2-Win/ELEC5552 Elctrial Project/Code/Uart_Control/Controller.vhd Line: 60
-Warning (10631): VHDL Process Statement warning at Controller.vhd(38): inferring latch(es) for signal or variable "wr_en", which holds its previous value in one or more paths through the process File: C:/Users/XORID/OneDrive - The University of Western Australia/21, M2-Win/ELEC5552 Elctrial Project/Code/Uart_Control/Controller.vhd Line: 38
-Warning (10631): VHDL Process Statement warning at Controller.vhd(38): inferring latch(es) for signal or variable "rd_en", which holds its previous value in one or more paths through the process File: C:/Users/XORID/OneDrive - The University of Western Australia/21, M2-Win/ELEC5552 Elctrial Project/Code/Uart_Control/Controller.vhd Line: 38
-Warning (10631): VHDL Process Statement warning at Controller.vhd(38): inferring latch(es) for signal or variable "tx_dv", which holds its previous value in one or more paths through the process File: C:/Users/XORID/OneDrive - The University of Western Australia/21, M2-Win/ELEC5552 Elctrial Project/Code/Uart_Control/Controller.vhd Line: 38
-Info (10041): Inferred latch for "tx_dv" at Controller.vhd(38) File: C:/Users/XORID/OneDrive - The University of Western Australia/21, M2-Win/ELEC5552 Elctrial Project/Code/Uart_Control/Controller.vhd Line: 38
-Info (10041): Inferred latch for "rd_en" at Controller.vhd(38) File: C:/Users/XORID/OneDrive - The University of Western Australia/21, M2-Win/ELEC5552 Elctrial Project/Code/Uart_Control/Controller.vhd Line: 38
-Info (10041): Inferred latch for "wr_en" at Controller.vhd(38) File: C:/Users/XORID/OneDrive - The University of Western Australia/21, M2-Win/ELEC5552 Elctrial Project/Code/Uart_Control/Controller.vhd Line: 38
+Warning (10492): VHDL Process Statement warning at Controller.vhd(31): signal "Reset" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/XORID/OneDrive - The University of Western Australia/21, M2-Win/ELEC5552 Elctrial Project/Code/Uart_Control/Controller.vhd Line: 31
+Warning (10492): VHDL Process Statement warning at Controller.vhd(39): signal "PS" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/XORID/OneDrive - The University of Western Australia/21, M2-Win/ELEC5552 Elctrial Project/Code/Uart_Control/Controller.vhd Line: 39
+Warning (10492): VHDL Process Statement warning at Controller.vhd(40): signal "PS_T" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/XORID/OneDrive - The University of Western Australia/21, M2-Win/ELEC5552 Elctrial Project/Code/Uart_Control/Controller.vhd Line: 40
+Warning (10492): VHDL Process Statement warning at Controller.vhd(55): signal "RTS_X" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/XORID/OneDrive - The University of Western Australia/21, M2-Win/ELEC5552 Elctrial Project/Code/Uart_Control/Controller.vhd Line: 55
+Warning (10492): VHDL Process Statement warning at Controller.vhd(55): signal "fifo_f" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/XORID/OneDrive - The University of Western Australia/21, M2-Win/ELEC5552 Elctrial Project/Code/Uart_Control/Controller.vhd Line: 55
+Warning (10492): VHDL Process Statement warning at Controller.vhd(61): signal "rx_dv" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/XORID/OneDrive - The University of Western Australia/21, M2-Win/ELEC5552 Elctrial Project/Code/Uart_Control/Controller.vhd Line: 61
+Warning (10631): VHDL Process Statement warning at Controller.vhd(45): inferring latch(es) for signal or variable "wr_en", which holds its previous value in one or more paths through the process File: C:/Users/XORID/OneDrive - The University of Western Australia/21, M2-Win/ELEC5552 Elctrial Project/Code/Uart_Control/Controller.vhd Line: 45
+Warning (10492): VHDL Process Statement warning at Controller.vhd(84): signal "CTS_C" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/XORID/OneDrive - The University of Western Australia/21, M2-Win/ELEC5552 Elctrial Project/Code/Uart_Control/Controller.vhd Line: 84
+Warning (10492): VHDL Process Statement warning at Controller.vhd(84): signal "fifo_e" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/XORID/OneDrive - The University of Western Australia/21, M2-Win/ELEC5552 Elctrial Project/Code/Uart_Control/Controller.vhd Line: 84
+Warning (10492): VHDL Process Statement warning at Controller.vhd(90): signal "tx_ac" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/XORID/OneDrive - The University of Western Australia/21, M2-Win/ELEC5552 Elctrial Project/Code/Uart_Control/Controller.vhd Line: 90
+Warning (10631): VHDL Process Statement warning at Controller.vhd(73): inferring latch(es) for signal or variable "rd_en", which holds its previous value in one or more paths through the process File: C:/Users/XORID/OneDrive - The University of Western Australia/21, M2-Win/ELEC5552 Elctrial Project/Code/Uart_Control/Controller.vhd Line: 73
+Warning (10631): VHDL Process Statement warning at Controller.vhd(73): inferring latch(es) for signal or variable "tx_dv", which holds its previous value in one or more paths through the process File: C:/Users/XORID/OneDrive - The University of Western Australia/21, M2-Win/ELEC5552 Elctrial Project/Code/Uart_Control/Controller.vhd Line: 73
+Info (10041): Inferred latch for "tx_dv" at Controller.vhd(73) File: C:/Users/XORID/OneDrive - The University of Western Australia/21, M2-Win/ELEC5552 Elctrial Project/Code/Uart_Control/Controller.vhd Line: 73
+Info (10041): Inferred latch for "rd_en" at Controller.vhd(73) File: C:/Users/XORID/OneDrive - The University of Western Australia/21, M2-Win/ELEC5552 Elctrial Project/Code/Uart_Control/Controller.vhd Line: 73
+Info (10041): Inferred latch for "wr_en" at Controller.vhd(45) File: C:/Users/XORID/OneDrive - The University of Western Australia/21, M2-Win/ELEC5552 Elctrial Project/Code/Uart_Control/Controller.vhd Line: 45
 Warning (13034): The following nodes have both tri-state and non-tri-state drivers
     Warning (13035): Inserted always-enabled tri-state buffer between "GPIO[1]" and its non-tri-state driver. File: C:/Users/XORID/OneDrive - The University of Western Australia/21, M2-Win/ELEC5552 Elctrial Project/Code/Uart_Control/Uart_Control.vhd Line: 11
 Warning (13039): The following bidirectional pins have no drivers
@@ -531,6 +550,8 @@ Warning (13039): The following bidirectional pins have no drivers
     Warning (13040): bidirectional pin "GPIO[33]" has no driver File: C:/Users/XORID/OneDrive - The University of Western Australia/21, M2-Win/ELEC5552 Elctrial Project/Code/Uart_Control/Uart_Control.vhd Line: 11
     Warning (13040): bidirectional pin "GPIO[34]" has no driver File: C:/Users/XORID/OneDrive - The University of Western Australia/21, M2-Win/ELEC5552 Elctrial Project/Code/Uart_Control/Uart_Control.vhd Line: 11
     Warning (13040): bidirectional pin "GPIO[35]" has no driver File: C:/Users/XORID/OneDrive - The University of Western Australia/21, M2-Win/ELEC5552 Elctrial Project/Code/Uart_Control/Uart_Control.vhd Line: 11
+Warning (13012): Latch Controller:con|tx_dv has unsafe behavior File: C:/Users/XORID/OneDrive - The University of Western Australia/21, M2-Win/ELEC5552 Elctrial Project/Code/Uart_Control/Controller.vhd Line: 12
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal Controller:con|PS_T.tx_ready File: C:/Users/XORID/OneDrive - The University of Western Australia/21, M2-Win/ELEC5552 Elctrial Project/Code/Uart_Control/Controller.vhd Line: 25
 Warning (13009): TRI or OPNDRN buffers permanently enabled
     Warning (13010): Node "GPIO[1]~synth" File: C:/Users/XORID/OneDrive - The University of Western Australia/21, M2-Win/ELEC5552 Elctrial Project/Code/Uart_Control/Uart_Control.vhd Line: 11
 Warning (13024): Output pins are stuck at VCC or GND
@@ -550,15 +571,15 @@ Warning (21074): Design contains 7 input pin(s) that do not drive logic
     Warning (15610): No output dependent on input pin "SW[7]" File: C:/Users/XORID/OneDrive - The University of Western Australia/21, M2-Win/ELEC5552 Elctrial Project/Code/Uart_Control/Uart_Control.vhd Line: 14
     Warning (15610): No output dependent on input pin "SW[8]" File: C:/Users/XORID/OneDrive - The University of Western Australia/21, M2-Win/ELEC5552 Elctrial Project/Code/Uart_Control/Uart_Control.vhd Line: 14
     Warning (15610): No output dependent on input pin "SW[9]" File: C:/Users/XORID/OneDrive - The University of Western Australia/21, M2-Win/ELEC5552 Elctrial Project/Code/Uart_Control/Uart_Control.vhd Line: 14
-Info (21057): Implemented 292 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 378 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 11 input pins
     Info (21059): Implemented 38 output pins
     Info (21060): Implemented 36 bidirectional pins
-    Info (21061): Implemented 207 logic cells
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 70 warnings
-    Info: Peak virtual memory: 4841 megabytes
-    Info: Processing ended: Tue Oct 05 01:20:21 2021
+    Info (21061): Implemented 293 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 73 warnings
+    Info: Peak virtual memory: 4840 megabytes
+    Info: Processing ended: Tue Oct 05 16:25:55 2021
     Info: Elapsed time: 00:00:11
-    Info: Total CPU time (on all processors): 00:00:21
+    Info: Total CPU time (on all processors): 00:00:20
 
 

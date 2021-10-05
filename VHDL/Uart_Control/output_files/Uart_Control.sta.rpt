@@ -1,5 +1,5 @@
 Timing Analyzer report for Uart_Control
-Tue Oct 05 01:20:40 2021
+Tue Oct 05 16:26:14 2021
 Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
 
 
@@ -91,55 +91,60 @@ refer to the applicable agreement for further details.
 ; Number detected on machine ; 12          ;
 ; Maximum allowed            ; 12          ;
 ;                            ;             ;
-; Average used               ; 1.19        ;
+; Average used               ; 1.22        ;
 ; Maximum used               ; 12          ;
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
-;     Processor 2            ;   1.9%      ;
-;     Processor 3            ;   1.7%      ;
-;     Processors 4-12        ;   1.7%      ;
+;     Processor 2            ;   2.3%      ;
+;     Processor 3            ;   2.0%      ;
+;     Processor 4            ;   2.0%      ;
+;     Processors 5-12        ;   1.9%      ;
 +----------------------------+-------------+
 
 
-+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Clocks                                                                                                                                                                                                     ;
-+----------------------+------+--------+------------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+--------------------------+
-; Clock Name           ; Type ; Period ; Frequency  ; Rise  ; Fall  ; Duty Cycle ; Divide by ; Multiply by ; Phase ; Offset ; Edge List ; Edge Shift ; Inverted ; Master ; Source ; Targets                  ;
-+----------------------+------+--------+------------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+--------------------------+
-; Controller:con|PS.rx ; Base ; 1.000  ; 1000.0 MHz ; 0.000 ; 0.500 ;            ;           ;             ;       ;        ;           ;            ;          ;        ;        ; { Controller:con|PS.rx } ;
-; MAX10_CLK1_50        ; Base ; 1.000  ; 1000.0 MHz ; 0.000 ; 0.500 ;            ;           ;             ;       ;        ;           ;            ;          ;        ;        ; { MAX10_CLK1_50 }        ;
-+----------------------+------+--------+------------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+--------------------------+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Clocks                                                                                                                                                                                                                     ;
++------------------------------+------+--------+------------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+----------------------------------+
+; Clock Name                   ; Type ; Period ; Frequency  ; Rise  ; Fall  ; Duty Cycle ; Divide by ; Multiply by ; Phase ; Offset ; Edge List ; Edge Shift ; Inverted ; Master ; Source ; Targets                          ;
++------------------------------+------+--------+------------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+----------------------------------+
+; Controller:con|PS_T.idle     ; Base ; 1.000  ; 1000.0 MHz ; 0.000 ; 0.500 ;            ;           ;             ;       ;        ;           ;            ;          ;        ;        ; { Controller:con|PS_T.idle }     ;
+; Controller:con|PS_T.tx_ready ; Base ; 1.000  ; 1000.0 MHz ; 0.000 ; 0.500 ;            ;           ;             ;       ;        ;           ;            ;          ;        ;        ; { Controller:con|PS_T.tx_ready } ;
+; MAX10_CLK1_50                ; Base ; 1.000  ; 1000.0 MHz ; 0.000 ; 0.500 ;            ;           ;             ;       ;        ;           ;            ;          ;        ;        ; { MAX10_CLK1_50 }                ;
++------------------------------+------+--------+------------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+----------------------------------+
 
 
-+--------------------------------------------------------------------------------------------------------------+
-; Slow 1200mV 85C Model Fmax Summary                                                                           ;
-+------------+-----------------+---------------+---------------------------------------------------------------+
-; Fmax       ; Restricted Fmax ; Clock Name    ; Note                                                          ;
-+------------+-----------------+---------------+---------------------------------------------------------------+
-; 306.75 MHz ; 250.0 MHz       ; MAX10_CLK1_50 ; limit due to minimum period restriction (max I/O toggle rate) ;
-+------------+-----------------+---------------+---------------------------------------------------------------+
++--------------------------------------------------------------------+
+; Slow 1200mV 85C Model Fmax Summary                                 ;
++------------+-----------------+------------------------------+------+
+; Fmax       ; Restricted Fmax ; Clock Name                   ; Note ;
++------------+-----------------+------------------------------+------+
+; 224.16 MHz ; 224.16 MHz      ; MAX10_CLK1_50                ;      ;
+; 409.5 MHz  ; 409.5 MHz       ; Controller:con|PS_T.tx_ready ;      ;
++------------+-----------------+------------------------------+------+
 This panel reports FMAX for every clock in the design, regardless of the user-specified clock periods.  FMAX is only computed for paths where the source and destination registers or ports are driven by the same clock.  Paths of different clocks, including generated clocks, are ignored.  For paths between a clock and its inversion, FMAX is computed as if the rising and falling edges are scaled along with FMAX, such that the duty cycle (in terms of a percentage) is maintained. Altera recommends that you always use clock constraints and other slack reports for sign-off analysis.
 
 
-+-----------------------------------------------+
-; Slow 1200mV 85C Model Setup Summary           ;
-+----------------------+--------+---------------+
-; Clock                ; Slack  ; End Point TNS ;
-+----------------------+--------+---------------+
-; Controller:con|PS.rx ; -3.112 ; -6.113        ;
-; MAX10_CLK1_50        ; -2.260 ; -135.518      ;
-+----------------------+--------+---------------+
++-------------------------------------------------------+
+; Slow 1200mV 85C Model Setup Summary                   ;
++------------------------------+--------+---------------+
+; Clock                        ; Slack  ; End Point TNS ;
++------------------------------+--------+---------------+
+; MAX10_CLK1_50                ; -3.461 ; -220.539      ;
+; Controller:con|PS_T.tx_ready ; -2.607 ; -3.328        ;
+; Controller:con|PS_T.idle     ; -0.763 ; -0.763        ;
++------------------------------+--------+---------------+
 
 
-+----------------------------------------------+
-; Slow 1200mV 85C Model Hold Summary           ;
-+----------------------+-------+---------------+
-; Clock                ; Slack ; End Point TNS ;
-+----------------------+-------+---------------+
-; MAX10_CLK1_50        ; 0.254 ; 0.000         ;
-; Controller:con|PS.rx ; 2.702 ; 0.000         ;
-+----------------------+-------+---------------+
++------------------------------------------------------+
+; Slow 1200mV 85C Model Hold Summary                   ;
++------------------------------+-------+---------------+
+; Clock                        ; Slack ; End Point TNS ;
++------------------------------+-------+---------------+
+; MAX10_CLK1_50                ; 0.325 ; 0.000         ;
+; Controller:con|PS_T.tx_ready ; 0.420 ; 0.000         ;
+; Controller:con|PS_T.idle     ; 0.449 ; 0.000         ;
++------------------------------+-------+---------------+
 
 
 ------------------------------------------
@@ -154,14 +159,15 @@ No paths to report.
 No paths to report.
 
 
-+---------------------------------------------------+
-; Slow 1200mV 85C Model Minimum Pulse Width Summary ;
-+----------------------+--------+-------------------+
-; Clock                ; Slack  ; End Point TNS     ;
-+----------------------+--------+-------------------+
-; MAX10_CLK1_50        ; -3.000 ; -117.868          ;
-; Controller:con|PS.rx ; 0.390  ; 0.000             ;
-+----------------------+--------+-------------------+
++-------------------------------------------------------+
+; Slow 1200mV 85C Model Minimum Pulse Width Summary     ;
++------------------------------+--------+---------------+
+; Clock                        ; Slack  ; End Point TNS ;
++------------------------------+--------+---------------+
+; MAX10_CLK1_50                ; -3.000 ; -172.986      ;
+; Controller:con|PS_T.tx_ready ; 0.408  ; 0.000         ;
+; Controller:con|PS_T.idle     ; 0.470  ; 0.000         ;
++------------------------------+--------+---------------+
 
 
 -----------------------------------------------
@@ -171,34 +177,37 @@ Design MTBF is not calculated because the design doesn't meet its timing require
 
 
 
-+--------------------------------------------------------------------------------------------------------------+
-; Slow 1200mV 0C Model Fmax Summary                                                                            ;
-+------------+-----------------+---------------+---------------------------------------------------------------+
-; Fmax       ; Restricted Fmax ; Clock Name    ; Note                                                          ;
-+------------+-----------------+---------------+---------------------------------------------------------------+
-; 337.27 MHz ; 250.0 MHz       ; MAX10_CLK1_50 ; limit due to minimum period restriction (max I/O toggle rate) ;
-+------------+-----------------+---------------+---------------------------------------------------------------+
++--------------------------------------------------------------------+
+; Slow 1200mV 0C Model Fmax Summary                                  ;
++------------+-----------------+------------------------------+------+
+; Fmax       ; Restricted Fmax ; Clock Name                   ; Note ;
++------------+-----------------+------------------------------+------+
+; 245.58 MHz ; 245.58 MHz      ; MAX10_CLK1_50                ;      ;
+; 457.04 MHz ; 457.04 MHz      ; Controller:con|PS_T.tx_ready ;      ;
++------------+-----------------+------------------------------+------+
 This panel reports FMAX for every clock in the design, regardless of the user-specified clock periods.  FMAX is only computed for paths where the source and destination registers or ports are driven by the same clock.  Paths of different clocks, including generated clocks, are ignored.  For paths between a clock and its inversion, FMAX is computed as if the rising and falling edges are scaled along with FMAX, such that the duty cycle (in terms of a percentage) is maintained. Altera recommends that you always use clock constraints and other slack reports for sign-off analysis.
 
 
-+-----------------------------------------------+
-; Slow 1200mV 0C Model Setup Summary            ;
-+----------------------+--------+---------------+
-; Clock                ; Slack  ; End Point TNS ;
-+----------------------+--------+---------------+
-; Controller:con|PS.rx ; -2.769 ; -5.449        ;
-; MAX10_CLK1_50        ; -1.965 ; -115.494      ;
-+----------------------+--------+---------------+
++-------------------------------------------------------+
+; Slow 1200mV 0C Model Setup Summary                    ;
++------------------------------+--------+---------------+
+; Clock                        ; Slack  ; End Point TNS ;
++------------------------------+--------+---------------+
+; MAX10_CLK1_50                ; -3.072 ; -190.287      ;
+; Controller:con|PS_T.tx_ready ; -2.322 ; -2.916        ;
+; Controller:con|PS_T.idle     ; -0.632 ; -0.632        ;
++------------------------------+--------+---------------+
 
 
-+----------------------------------------------+
-; Slow 1200mV 0C Model Hold Summary            ;
-+----------------------+-------+---------------+
-; Clock                ; Slack ; End Point TNS ;
-+----------------------+-------+---------------+
-; MAX10_CLK1_50        ; 0.246 ; 0.000         ;
-; Controller:con|PS.rx ; 2.496 ; 0.000         ;
-+----------------------+-------+---------------+
++------------------------------------------------------+
+; Slow 1200mV 0C Model Hold Summary                    ;
++------------------------------+-------+---------------+
+; Clock                        ; Slack ; End Point TNS ;
++------------------------------+-------+---------------+
+; MAX10_CLK1_50                ; 0.295 ; 0.000         ;
+; Controller:con|PS_T.tx_ready ; 0.395 ; 0.000         ;
+; Controller:con|PS_T.idle     ; 0.423 ; 0.000         ;
++------------------------------+-------+---------------+
 
 
 -----------------------------------------
@@ -213,14 +222,15 @@ No paths to report.
 No paths to report.
 
 
-+--------------------------------------------------+
-; Slow 1200mV 0C Model Minimum Pulse Width Summary ;
-+----------------------+--------+------------------+
-; Clock                ; Slack  ; End Point TNS    ;
-+----------------------+--------+------------------+
-; MAX10_CLK1_50        ; -3.000 ; -117.868         ;
-; Controller:con|PS.rx ; 0.403  ; 0.000            ;
-+----------------------+--------+------------------+
++-------------------------------------------------------+
+; Slow 1200mV 0C Model Minimum Pulse Width Summary      ;
++------------------------------+--------+---------------+
+; Clock                        ; Slack  ; End Point TNS ;
++------------------------------+--------+---------------+
+; MAX10_CLK1_50                ; -3.000 ; -172.858      ;
+; Controller:con|PS_T.tx_ready ; 0.413  ; 0.000         ;
+; Controller:con|PS_T.idle     ; 0.473  ; 0.000         ;
++------------------------------+--------+---------------+
 
 
 ----------------------------------------------
@@ -230,24 +240,26 @@ Design MTBF is not calculated because the design doesn't meet its timing require
 
 
 
-+-----------------------------------------------+
-; Fast 1200mV 0C Model Setup Summary            ;
-+----------------------+--------+---------------+
-; Clock                ; Slack  ; End Point TNS ;
-+----------------------+--------+---------------+
-; Controller:con|PS.rx ; -1.079 ; -2.069        ;
-; MAX10_CLK1_50        ; -0.538 ; -19.288       ;
-+----------------------+--------+---------------+
++-------------------------------------------------------+
+; Fast 1200mV 0C Model Setup Summary                    ;
++------------------------------+--------+---------------+
+; Clock                        ; Slack  ; End Point TNS ;
++------------------------------+--------+---------------+
+; MAX10_CLK1_50                ; -1.158 ; -34.451       ;
+; Controller:con|PS_T.tx_ready ; -0.819 ; -0.937        ;
+; Controller:con|PS_T.idle     ; -0.136 ; -0.136        ;
++------------------------------+--------+---------------+
 
 
-+----------------------------------------------+
-; Fast 1200mV 0C Model Hold Summary            ;
-+----------------------+-------+---------------+
-; Clock                ; Slack ; End Point TNS ;
-+----------------------+-------+---------------+
-; MAX10_CLK1_50        ; 0.098 ; 0.000         ;
-; Controller:con|PS.rx ; 1.339 ; 0.000         ;
-+----------------------+-------+---------------+
++------------------------------------------------------+
+; Fast 1200mV 0C Model Hold Summary                    ;
++------------------------------+-------+---------------+
+; Clock                        ; Slack ; End Point TNS ;
++------------------------------+-------+---------------+
+; MAX10_CLK1_50                ; 0.148 ; 0.000         ;
+; Controller:con|PS_T.tx_ready ; 0.197 ; 0.000         ;
+; Controller:con|PS_T.idle     ; 0.208 ; 0.000         ;
++------------------------------+-------+---------------+
 
 
 -----------------------------------------
@@ -262,14 +274,15 @@ No paths to report.
 No paths to report.
 
 
-+--------------------------------------------------+
-; Fast 1200mV 0C Model Minimum Pulse Width Summary ;
-+----------------------+--------+------------------+
-; Clock                ; Slack  ; End Point TNS    ;
-+----------------------+--------+------------------+
-; MAX10_CLK1_50        ; -3.000 ; -112.958         ;
-; Controller:con|PS.rx ; 0.415  ; 0.000            ;
-+----------------------+--------+------------------+
++-------------------------------------------------------+
+; Fast 1200mV 0C Model Minimum Pulse Width Summary      ;
++------------------------------+--------+---------------+
+; Clock                        ; Slack  ; End Point TNS ;
++------------------------------+--------+---------------+
+; MAX10_CLK1_50                ; -3.000 ; -166.575      ;
+; Controller:con|PS_T.tx_ready ; 0.449  ; 0.000         ;
+; Controller:con|PS_T.idle     ; 0.474  ; 0.000         ;
++------------------------------+--------+---------------+
 
 
 ----------------------------------------------
@@ -279,18 +292,20 @@ Design MTBF is not calculated because the design doesn't meet its timing require
 
 
 
-+-------------------------------------------------------------------------------------+
-; Multicorner Timing Analysis Summary                                                 ;
-+-----------------------+----------+-------+----------+---------+---------------------+
-; Clock                 ; Setup    ; Hold  ; Recovery ; Removal ; Minimum Pulse Width ;
-+-----------------------+----------+-------+----------+---------+---------------------+
-; Worst-case Slack      ; -3.112   ; 0.098 ; N/A      ; N/A     ; -3.000              ;
-;  Controller:con|PS.rx ; -3.112   ; 1.339 ; N/A      ; N/A     ; 0.390               ;
-;  MAX10_CLK1_50        ; -2.260   ; 0.098 ; N/A      ; N/A     ; -3.000              ;
-; Design-wide TNS       ; -141.631 ; 0.0   ; 0.0      ; 0.0     ; -117.868            ;
-;  Controller:con|PS.rx ; -6.113   ; 0.000 ; N/A      ; N/A     ; 0.000               ;
-;  MAX10_CLK1_50        ; -135.518 ; 0.000 ; N/A      ; N/A     ; -117.868            ;
-+-----------------------+----------+-------+----------+---------+---------------------+
++---------------------------------------------------------------------------------------------+
+; Multicorner Timing Analysis Summary                                                         ;
++-------------------------------+----------+-------+----------+---------+---------------------+
+; Clock                         ; Setup    ; Hold  ; Recovery ; Removal ; Minimum Pulse Width ;
++-------------------------------+----------+-------+----------+---------+---------------------+
+; Worst-case Slack              ; -3.461   ; 0.148 ; N/A      ; N/A     ; -3.000              ;
+;  Controller:con|PS_T.idle     ; -0.763   ; 0.208 ; N/A      ; N/A     ; 0.470               ;
+;  Controller:con|PS_T.tx_ready ; -2.607   ; 0.197 ; N/A      ; N/A     ; 0.408               ;
+;  MAX10_CLK1_50                ; -3.461   ; 0.148 ; N/A      ; N/A     ; -3.000              ;
+; Design-wide TNS               ; -224.63  ; 0.0   ; 0.0      ; 0.0     ; -172.986            ;
+;  Controller:con|PS_T.idle     ; -0.763   ; 0.000 ; N/A      ; N/A     ; 0.000               ;
+;  Controller:con|PS_T.tx_ready ; -3.328   ; 0.000 ; N/A      ; N/A     ; 0.000               ;
+;  MAX10_CLK1_50                ; -220.539 ; 0.000 ; N/A      ; N/A     ; -172.986            ;
++-------------------------------+----------+-------+----------+---------+---------------------+
 
 
 +-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -687,27 +702,33 @@ Design MTBF is not calculated because the design doesn't meet its timing require
 +--------------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
 
 
-+-----------------------------------------------------------------------------------------+
-; Setup Transfers                                                                         ;
-+----------------------+----------------------+----------+----------+----------+----------+
-; From Clock           ; To Clock             ; RR Paths ; FR Paths ; RF Paths ; FF Paths ;
-+----------------------+----------------------+----------+----------+----------+----------+
-; MAX10_CLK1_50        ; Controller:con|PS.rx ; 4        ; 0        ; 0        ; 0        ;
-; Controller:con|PS.rx ; MAX10_CLK1_50        ; 23       ; 1        ; 0        ; 0        ;
-; MAX10_CLK1_50        ; MAX10_CLK1_50        ; 1121     ; 0        ; 0        ; 0        ;
-+----------------------+----------------------+----------+----------+----------+----------+
++---------------------------------------------------------------------------------------------------------+
+; Setup Transfers                                                                                         ;
++------------------------------+------------------------------+----------+----------+----------+----------+
+; From Clock                   ; To Clock                     ; RR Paths ; FR Paths ; RF Paths ; FF Paths ;
++------------------------------+------------------------------+----------+----------+----------+----------+
+; Controller:con|PS_T.tx_ready ; Controller:con|PS_T.idle     ; 1        ; 1        ; 0        ; 0        ;
+; Controller:con|PS_T.tx_ready ; Controller:con|PS_T.tx_ready ; 1        ; 1        ; 0        ; 0        ;
+; MAX10_CLK1_50                ; Controller:con|PS_T.tx_ready ; 1        ; 0        ; 0        ; 0        ;
+; Controller:con|PS_T.idle     ; MAX10_CLK1_50                ; 12       ; 2        ; 0        ; 0        ;
+; Controller:con|PS_T.tx_ready ; MAX10_CLK1_50                ; 30       ; 2        ; 0        ; 0        ;
+; MAX10_CLK1_50                ; MAX10_CLK1_50                ; 1416     ; 0        ; 0        ; 0        ;
++------------------------------+------------------------------+----------+----------+----------+----------+
 Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
 
 
-+-----------------------------------------------------------------------------------------+
-; Hold Transfers                                                                          ;
-+----------------------+----------------------+----------+----------+----------+----------+
-; From Clock           ; To Clock             ; RR Paths ; FR Paths ; RF Paths ; FF Paths ;
-+----------------------+----------------------+----------+----------+----------+----------+
-; MAX10_CLK1_50        ; Controller:con|PS.rx ; 4        ; 0        ; 0        ; 0        ;
-; Controller:con|PS.rx ; MAX10_CLK1_50        ; 23       ; 1        ; 0        ; 0        ;
-; MAX10_CLK1_50        ; MAX10_CLK1_50        ; 1121     ; 0        ; 0        ; 0        ;
-+----------------------+----------------------+----------+----------+----------+----------+
++---------------------------------------------------------------------------------------------------------+
+; Hold Transfers                                                                                          ;
++------------------------------+------------------------------+----------+----------+----------+----------+
+; From Clock                   ; To Clock                     ; RR Paths ; FR Paths ; RF Paths ; FF Paths ;
++------------------------------+------------------------------+----------+----------+----------+----------+
+; Controller:con|PS_T.tx_ready ; Controller:con|PS_T.idle     ; 1        ; 1        ; 0        ; 0        ;
+; Controller:con|PS_T.tx_ready ; Controller:con|PS_T.tx_ready ; 1        ; 1        ; 0        ; 0        ;
+; MAX10_CLK1_50                ; Controller:con|PS_T.tx_ready ; 1        ; 0        ; 0        ; 0        ;
+; Controller:con|PS_T.idle     ; MAX10_CLK1_50                ; 12       ; 2        ; 0        ; 0        ;
+; Controller:con|PS_T.tx_ready ; MAX10_CLK1_50                ; 30       ; 2        ; 0        ; 0        ;
+; MAX10_CLK1_50                ; MAX10_CLK1_50                ; 1416     ; 0        ; 0        ; 0        ;
++------------------------------+------------------------------+----------+----------+----------+----------+
 Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
 
 
@@ -731,20 +752,21 @@ No non-DPA dedicated SERDES Receiver circuitry present in device or used in desi
 ; Illegal Clocks                  ; 0     ; 0    ;
 ; Unconstrained Clocks            ; 0     ; 0    ;
 ; Unconstrained Input Ports       ; 4     ; 4    ;
-; Unconstrained Input Port Paths  ; 45    ; 45   ;
+; Unconstrained Input Port Paths  ; 88    ; 88   ;
 ; Unconstrained Output Ports      ; 34    ; 34   ;
-; Unconstrained Output Port Paths ; 268   ; 268  ;
+; Unconstrained Output Port Paths ; 564   ; 564  ;
 +---------------------------------+-------+------+
 
 
-+------------------------------------------------------------------+
-; Clock Status Summary                                             ;
-+----------------------+----------------------+------+-------------+
-; Target               ; Clock                ; Type ; Status      ;
-+----------------------+----------------------+------+-------------+
-; Controller:con|PS.rx ; Controller:con|PS.rx ; Base ; Constrained ;
-; MAX10_CLK1_50        ; MAX10_CLK1_50        ; Base ; Constrained ;
-+----------------------+----------------------+------+-------------+
++----------------------------------------------------------------------------------+
+; Clock Status Summary                                                             ;
++------------------------------+------------------------------+------+-------------+
+; Target                       ; Clock                        ; Type ; Status      ;
++------------------------------+------------------------------+------+-------------+
+; Controller:con|PS_T.idle     ; Controller:con|PS_T.idle     ; Base ; Constrained ;
+; Controller:con|PS_T.tx_ready ; Controller:con|PS_T.tx_ready ; Base ; Constrained ;
+; MAX10_CLK1_50                ; MAX10_CLK1_50                ; Base ; Constrained ;
++------------------------------+------------------------------+------+-------------+
 
 
 +---------------------------------------------------------------------------------------------------+
@@ -861,7 +883,7 @@ No non-DPA dedicated SERDES Receiver circuitry present in device or used in desi
 Info: *******************************************************************
 Info: Running Quartus Prime Timing Analyzer
     Info: Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
-    Info: Processing started: Tue Oct 05 01:20:37 2021
+    Info: Processing started: Tue Oct 05 16:26:11 2021
 Info: Command: quartus_sta Uart_Control -c Uart_Control
 Info: qsta_default_script.tcl version: #1
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
@@ -873,84 +895,100 @@ Critical Warning (332012): Synopsys Design Constraints File file not found: 'Uar
 Info (332142): No user constrained base clocks found in the design. Calling "derive_clocks -period 1.0"
 Info (332105): Deriving Clocks
     Info (332105): create_clock -period 1.000 -name MAX10_CLK1_50 MAX10_CLK1_50
-    Info (332105): create_clock -period 1.000 -name Controller:con|PS.rx Controller:con|PS.rx
+    Info (332105): create_clock -period 1.000 -name Controller:con|PS_T.idle Controller:con|PS_T.idle
+    Info (332105): create_clock -period 1.000 -name Controller:con|PS_T.tx_ready Controller:con|PS_T.tx_ready
+Info (332097): The following timing edges are non-unate.  The Timing Analyzer will assume pos-unate behavior for these edges in the clock network.
+    Info (332098): Cell: con|Selector2~0  from: datad  to: combout
 Info (332143): No user constrained clock uncertainty found in the design. Calling "derive_clock_uncertainty"
 Info (332123): Deriving Clock Uncertainty. Please refer to report_sdc in the Timing Analyzer to see clock uncertainties.
 Info: Found TIMING_ANALYZER_REPORT_SCRIPT_INCLUDE_DEFAULT_ANALYSIS = ON
 Info: Analyzing Slow 1200mV 85C Model
 Info: Can't run Report Timing Closure Recommendations. The current device family is not supported.
 Critical Warning (332148): Timing requirements not met
-Info (332146): Worst-case setup slack is -3.112
+Info (332146): Worst-case setup slack is -3.461
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):    -3.112              -6.113 Controller:con|PS.rx 
-    Info (332119):    -2.260            -135.518 MAX10_CLK1_50 
-Info (332146): Worst-case hold slack is 0.254
+    Info (332119):    -3.461            -220.539 MAX10_CLK1_50 
+    Info (332119):    -2.607              -3.328 Controller:con|PS_T.tx_ready 
+    Info (332119):    -0.763              -0.763 Controller:con|PS_T.idle 
+Info (332146): Worst-case hold slack is 0.325
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):     0.254               0.000 MAX10_CLK1_50 
-    Info (332119):     2.702               0.000 Controller:con|PS.rx 
+    Info (332119):     0.325               0.000 MAX10_CLK1_50 
+    Info (332119):     0.420               0.000 Controller:con|PS_T.tx_ready 
+    Info (332119):     0.449               0.000 Controller:con|PS_T.idle 
 Info (332140): No Recovery paths to report
 Info (332140): No Removal paths to report
 Info (332146): Worst-case minimum pulse width slack is -3.000
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):    -3.000            -117.868 MAX10_CLK1_50 
-    Info (332119):     0.390               0.000 Controller:con|PS.rx 
+    Info (332119):    -3.000            -172.986 MAX10_CLK1_50 
+    Info (332119):     0.408               0.000 Controller:con|PS_T.tx_ready 
+    Info (332119):     0.470               0.000 Controller:con|PS_T.idle 
 Info (332114): Report Metastability: Found 1 synchronizer chains.
     Info (332114): Design MTBF is not calculated because the design doesn't meet its timing requirements.
 Info: Analyzing Slow 1200mV 0C Model
 Info (334003): Started post-fitting delay annotation
 Warning (334000): Timing characteristics of device 10M50DAF484C6GES are preliminary
 Info (334004): Delay annotation completed successfully
+Info (332097): The following timing edges are non-unate.  The Timing Analyzer will assume pos-unate behavior for these edges in the clock network.
+    Info (332098): Cell: con|Selector2~0  from: datad  to: combout
 Info (332123): Deriving Clock Uncertainty. Please refer to report_sdc in the Timing Analyzer to see clock uncertainties.
 Critical Warning (332148): Timing requirements not met
-Info (332146): Worst-case setup slack is -2.769
+Info (332146): Worst-case setup slack is -3.072
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):    -2.769              -5.449 Controller:con|PS.rx 
-    Info (332119):    -1.965            -115.494 MAX10_CLK1_50 
-Info (332146): Worst-case hold slack is 0.246
+    Info (332119):    -3.072            -190.287 MAX10_CLK1_50 
+    Info (332119):    -2.322              -2.916 Controller:con|PS_T.tx_ready 
+    Info (332119):    -0.632              -0.632 Controller:con|PS_T.idle 
+Info (332146): Worst-case hold slack is 0.295
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):     0.246               0.000 MAX10_CLK1_50 
-    Info (332119):     2.496               0.000 Controller:con|PS.rx 
+    Info (332119):     0.295               0.000 MAX10_CLK1_50 
+    Info (332119):     0.395               0.000 Controller:con|PS_T.tx_ready 
+    Info (332119):     0.423               0.000 Controller:con|PS_T.idle 
 Info (332140): No Recovery paths to report
 Info (332140): No Removal paths to report
 Info (332146): Worst-case minimum pulse width slack is -3.000
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):    -3.000            -117.868 MAX10_CLK1_50 
-    Info (332119):     0.403               0.000 Controller:con|PS.rx 
+    Info (332119):    -3.000            -172.858 MAX10_CLK1_50 
+    Info (332119):     0.413               0.000 Controller:con|PS_T.tx_ready 
+    Info (332119):     0.473               0.000 Controller:con|PS_T.idle 
 Info (332114): Report Metastability: Found 1 synchronizer chains.
     Info (332114): Design MTBF is not calculated because the design doesn't meet its timing requirements.
 Info: Analyzing Fast 1200mV 0C Model
+Info (332097): The following timing edges are non-unate.  The Timing Analyzer will assume pos-unate behavior for these edges in the clock network.
+    Info (332098): Cell: con|Selector2~0  from: datad  to: combout
 Info (332123): Deriving Clock Uncertainty. Please refer to report_sdc in the Timing Analyzer to see clock uncertainties.
 Critical Warning (332148): Timing requirements not met
-Info (332146): Worst-case setup slack is -1.079
+Info (332146): Worst-case setup slack is -1.158
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):    -1.079              -2.069 Controller:con|PS.rx 
-    Info (332119):    -0.538             -19.288 MAX10_CLK1_50 
-Info (332146): Worst-case hold slack is 0.098
+    Info (332119):    -1.158             -34.451 MAX10_CLK1_50 
+    Info (332119):    -0.819              -0.937 Controller:con|PS_T.tx_ready 
+    Info (332119):    -0.136              -0.136 Controller:con|PS_T.idle 
+Info (332146): Worst-case hold slack is 0.148
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):     0.098               0.000 MAX10_CLK1_50 
-    Info (332119):     1.339               0.000 Controller:con|PS.rx 
+    Info (332119):     0.148               0.000 MAX10_CLK1_50 
+    Info (332119):     0.197               0.000 Controller:con|PS_T.tx_ready 
+    Info (332119):     0.208               0.000 Controller:con|PS_T.idle 
 Info (332140): No Recovery paths to report
 Info (332140): No Removal paths to report
 Info (332146): Worst-case minimum pulse width slack is -3.000
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):    -3.000            -112.958 MAX10_CLK1_50 
-    Info (332119):     0.415               0.000 Controller:con|PS.rx 
+    Info (332119):    -3.000            -166.575 MAX10_CLK1_50 
+    Info (332119):     0.449               0.000 Controller:con|PS_T.tx_ready 
+    Info (332119):     0.474               0.000 Controller:con|PS_T.idle 
 Info (332114): Report Metastability: Found 1 synchronizer chains.
     Info (332114): Design MTBF is not calculated because the design doesn't meet its timing requirements.
 Info (332102): Design is not fully constrained for setup requirements
 Info (332102): Design is not fully constrained for hold requirements
 Info: Quartus Prime Timing Analyzer was successful. 0 errors, 7 warnings
-    Info: Peak virtual memory: 4911 megabytes
-    Info: Processing ended: Tue Oct 05 01:20:40 2021
+    Info: Peak virtual memory: 4910 megabytes
+    Info: Processing ended: Tue Oct 05 16:26:14 2021
     Info: Elapsed time: 00:00:03
     Info: Total CPU time (on all processors): 00:00:03
 

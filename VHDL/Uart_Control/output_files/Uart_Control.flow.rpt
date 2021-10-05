@@ -1,5 +1,5 @@
 Flow report for Uart_Control
-Tue Oct 05 01:20:40 2021
+Tue Oct 05 16:26:14 2021
 Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
 
 
@@ -40,17 +40,17 @@ refer to the applicable agreement for further details.
 +----------------------------------------------------------------------------------+
 ; Flow Summary                                                                     ;
 +------------------------------------+---------------------------------------------+
-; Flow Status                        ; Successful - Tue Oct 05 01:20:36 2021       ;
+; Flow Status                        ; Successful - Tue Oct 05 16:26:10 2021       ;
 ; Quartus Prime Version              ; 18.1.0 Build 625 09/12/2018 SJ Lite Edition ;
 ; Revision Name                      ; Uart_Control                                ;
 ; Top-level Entity Name              ; Uart_Control                                ;
 ; Family                             ; MAX 10                                      ;
 ; Device                             ; 10M50DAF484C6GES                            ;
 ; Timing Models                      ; Preliminary                                 ;
-; Total logic elements               ; 187 / 49,760 ( < 1 % )                      ;
-;     Total combinational functions  ; 170 / 49,760 ( < 1 % )                      ;
-;     Dedicated logic registers      ; 94 / 49,760 ( < 1 % )                       ;
-; Total registers                    ; 94                                          ;
+; Total logic elements               ; 245 / 49,760 ( < 1 % )                      ;
+;     Total combinational functions  ; 217 / 49,760 ( < 1 % )                      ;
+;     Dedicated logic registers      ; 139 / 49,760 ( < 1 % )                      ;
+; Total registers                    ; 139                                         ;
 ; Total pins                         ; 85 / 360 ( 24 % )                           ;
 ; Total virtual pins                 ; 0                                           ;
 ; Total memory bits                  ; 0 / 1,677,312 ( 0 % )                       ;
@@ -66,7 +66,7 @@ refer to the applicable agreement for further details.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 10/05/2021 01:20:11 ;
+; Start date & time ; 10/05/2021 16:25:45 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; Uart_Control        ;
 +-------------------+---------------------+
@@ -77,7 +77,7 @@ refer to the applicable agreement for further details.
 +-------------------------------------+----------------------------------------+---------------+-------------+------------+
 ; Assignment Name                     ; Value                                  ; Default Value ; Entity Name ; Section Id ;
 +-------------------------------------+----------------------------------------+---------------+-------------+------------+
-; COMPILER_SIGNATURE_ID               ; 1095566879469.163336801120928          ; --            ; --          ; --         ;
+; COMPILER_SIGNATURE_ID               ; 1095566879469.163342234424288          ; --            ; --          ; --         ;
 ; MAX_CORE_JUNCTION_TEMP              ; 85                                     ; --            ; --          ; --         ;
 ; MIN_CORE_JUNCTION_TEMP              ; 0                                      ; --            ; --          ; --         ;
 ; PARTITION_COLOR                     ; -- (Not supported for targeted family) ; --            ; --          ; Top        ;
@@ -94,10 +94,10 @@ refer to the applicable agreement for further details.
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name          ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis ; 00:00:11     ; 1.0                     ; 4841 MB             ; 00:00:21                           ;
-; Fitter               ; 00:00:10     ; 1.1                     ; 6219 MB             ; 00:00:15                           ;
+; Analysis & Synthesis ; 00:00:10     ; 1.0                     ; 4840 MB             ; 00:00:20                           ;
+; Fitter               ; 00:00:11     ; 1.1                     ; 6222 MB             ; 00:00:16                           ;
 ; Assembler            ; 00:00:03     ; 1.0                     ; 4680 MB             ; 00:00:03                           ;
-; Timing Analyzer      ; 00:00:03     ; 1.2                     ; 4911 MB             ; 00:00:03                           ;
+; Timing Analyzer      ; 00:00:03     ; 1.2                     ; 4910 MB             ; 00:00:03                           ;
 ; Total                ; 00:00:27     ; --                      ; --                  ; 00:00:42                           ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 
