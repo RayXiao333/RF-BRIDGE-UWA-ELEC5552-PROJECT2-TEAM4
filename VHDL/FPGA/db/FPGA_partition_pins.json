@@ -1,0 +1,41 @@
+{
+	"partitions" : [
+		{
+			"name" : "Top",
+			"pins" : [
+				{
+					"name" : "tx_x",
+					"strict" : false
+				},
+				{
+					"name" : "tx_c",
+					"strict" : false
+				},
+				{
+					"name" : "MAX10_CLK1_50",
+					"strict" : false
+				},
+				{
+					"name" : "SW[0]",
+					"strict" : false
+				},
+				{
+					"name" : "RTS_X",
+					"strict" : false
+				},
+				{
+					"name" : "CTS_C",
+					"strict" : false
+				},
+				{
+					"name" : "rx_c",
+					"strict" : false
+				},
+				{
+					"name" : "rx_x",
+					"strict" : false
+				}
+			]
+		}
+	]
+}
