@@ -174,7 +174,7 @@ begin
 		
   --RX from CC1310
   UART_RX_CC :  UART_RX
-	 generic map(integer(100))	--100 for 500kbps Baudrate 
+	 generic map(integer(77))	--77 for 650kbps Baudrate 
     port map (
       MAX10_CLK1_50,
       GPIO(10),
@@ -184,7 +184,7 @@ begin
  
   -- TX to CC1310
   UART_TX_CC :  UART_TX
-	 generic map(integer(100))
+	 generic map(integer(77))
     port map (
       MAX10_CLK1_50,
       tx_dv,
