@@ -3,9 +3,10 @@ RF BRIDGE
 
 For Test Platform (DE10-lite)
 	Loopback with XPORT and FPGA attached:
+	
 		FPGA      -> FPGA	  // For loop back
-		GPIO(28) -> GPIO(29) // CTS/RTS of RF module connect together in purpose of loop back
-		GPIO(10) -> GIPO(11) // TX/RX of RF module connect together in purpose of loop back
+		GPIO(28) -> GPIO(29) 	  // CTS/RTS of RF module connect together in purpose of loop back
+		GPIO(10) -> GIPO(11) 	  // TX/RX of RF module connect together in purpose of loop back
 		
 		FPGA      -> XPORT
 		GPIO(0)  -> PIN4 	  // FPGA RX connect with XPORT data out
