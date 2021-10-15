@@ -1,0 +1,7 @@
+Early Power Estimator File Generator Status : Successful - Tue Oct 12 09:49:27 2021
+Quartus Prime Version : 18.1.0 Build 625 09/12/2018 SJ Lite Edition
+Revision Name : FPGA
+Top-level Entity Name : FPGA
+Family : MAX 10
+Device : 10M50DAF484C6GES
+Power Estimation Confidence : Low: user provided insufficient toggle rate data

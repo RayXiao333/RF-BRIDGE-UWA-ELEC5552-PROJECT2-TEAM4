@@ -2,76 +2,136 @@
 Timing Analyzer Summary
 ------------------------------------------------------------
 
-Type  : Slow 1200mV 85C Model Setup 'Controller:con|PS.rx'
-Slack : -3.472
-TNS   : -6.921
+Type  : Slow 1200mV 100C Model Setup 'Controller:con|PS.idle'
+Slack : -3.604
+TNS   : -3.604
 
-Type  : Slow 1200mV 85C Model Setup 'MAX10_CLK1_50'
-Slack : -2.487
-TNS   : -209.911
+Type  : Slow 1200mV 100C Model Setup 'clk'
+Slack : -2.761
+TNS   : -250.256
 
-Type  : Slow 1200mV 85C Model Hold 'MAX10_CLK1_50'
-Slack : 0.308
+Type  : Slow 1200mV 100C Model Setup 'Controller:con|PS_T.tx_done'
+Slack : -2.758
+TNS   : -5.196
+
+Type  : Slow 1200mV 100C Model Hold 'clk'
+Slack : 0.256
 TNS   : 0.000
 
-Type  : Slow 1200mV 85C Model Hold 'Controller:con|PS.rx'
-Slack : 3.274
+Type  : Slow 1200mV 100C Model Hold 'Controller:con|PS_T.tx_done'
+Slack : 2.108
 TNS   : 0.000
 
-Type  : Slow 1200mV 85C Model Minimum Pulse Width 'MAX10_CLK1_50'
+Type  : Slow 1200mV 100C Model Hold 'Controller:con|PS.idle'
+Slack : 3.214
+TNS   : 0.000
+
+Type  : Slow 1200mV 100C Model Recovery 'clk'
+Slack : -0.843
+TNS   : -22.382
+
+Type  : Slow 1200mV 100C Model Removal 'clk'
+Slack : 0.953
+TNS   : 0.000
+
+Type  : Slow 1200mV 100C Model Minimum Pulse Width 'clk'
+Slack : -3.566
+TNS   : -232.391
+
+Type  : Slow 1200mV 100C Model Minimum Pulse Width 'Controller:con|PS_T.tx_done'
+Slack : 0.427
+TNS   : 0.000
+
+Type  : Slow 1200mV 100C Model Minimum Pulse Width 'Controller:con|PS.idle'
+Slack : 0.480
+TNS   : 0.000
+
+Type  : Slow 1200mV -40C Model Setup 'Controller:con|PS.idle'
+Slack : -3.105
+TNS   : -3.105
+
+Type  : Slow 1200mV -40C Model Setup 'clk'
+Slack : -2.408
+TNS   : -205.974
+
+Type  : Slow 1200mV -40C Model Setup 'Controller:con|PS_T.tx_done'
+Slack : -2.292
+TNS   : -4.319
+
+Type  : Slow 1200mV -40C Model Hold 'clk'
+Slack : 0.252
+TNS   : 0.000
+
+Type  : Slow 1200mV -40C Model Hold 'Controller:con|PS_T.tx_done'
+Slack : 1.882
+TNS   : 0.000
+
+Type  : Slow 1200mV -40C Model Hold 'Controller:con|PS.idle'
+Slack : 2.912
+TNS   : 0.000
+
+Type  : Slow 1200mV -40C Model Recovery 'clk'
+Slack : -0.618
+TNS   : -15.429
+
+Type  : Slow 1200mV -40C Model Removal 'clk'
+Slack : 0.849
+TNS   : 0.000
+
+Type  : Slow 1200mV -40C Model Minimum Pulse Width 'clk'
+Slack : -3.566
+TNS   : -232.391
+
+Type  : Slow 1200mV -40C Model Minimum Pulse Width 'Controller:con|PS_T.tx_done'
+Slack : 0.450
+TNS   : 0.000
+
+Type  : Slow 1200mV -40C Model Minimum Pulse Width 'Controller:con|PS.idle'
+Slack : 0.473
+TNS   : 0.000
+
+Type  : Fast 1200mV -40C Model Setup 'Controller:con|PS.idle'
+Slack : -1.203
+TNS   : -1.203
+
+Type  : Fast 1200mV -40C Model Setup 'clk'
+Slack : -0.641
+TNS   : -26.618
+
+Type  : Fast 1200mV -40C Model Setup 'Controller:con|PS_T.tx_done'
+Slack : -0.560
+TNS   : -0.994
+
+Type  : Fast 1200mV -40C Model Hold 'clk'
+Slack : 0.097
+TNS   : 0.000
+
+Type  : Fast 1200mV -40C Model Hold 'Controller:con|PS_T.tx_done'
+Slack : 0.876
+TNS   : 0.000
+
+Type  : Fast 1200mV -40C Model Hold 'Controller:con|PS.idle'
+Slack : 1.594
+TNS   : 0.000
+
+Type  : Fast 1200mV -40C Model Recovery 'clk'
+Slack : 0.145
+TNS   : 0.000
+
+Type  : Fast 1200mV -40C Model Removal 'clk'
+Slack : 0.411
+TNS   : 0.000
+
+Type  : Fast 1200mV -40C Model Minimum Pulse Width 'clk'
 Slack : -3.000
-TNS   : -185.078
+TNS   : -173.626
 
-Type  : Slow 1200mV 85C Model Minimum Pulse Width 'Controller:con|PS.rx'
-Slack : 0.412
+Type  : Fast 1200mV -40C Model Minimum Pulse Width 'Controller:con|PS_T.tx_done'
+Slack : 0.456
 TNS   : 0.000
 
-Type  : Slow 1200mV 0C Model Setup 'Controller:con|PS.rx'
-Slack : -3.101
-TNS   : -6.174
-
-Type  : Slow 1200mV 0C Model Setup 'MAX10_CLK1_50'
-Slack : -2.208
-TNS   : -179.533
-
-Type  : Slow 1200mV 0C Model Hold 'MAX10_CLK1_50'
-Slack : 0.280
-TNS   : 0.000
-
-Type  : Slow 1200mV 0C Model Hold 'Controller:con|PS.rx'
-Slack : 2.997
-TNS   : 0.000
-
-Type  : Slow 1200mV 0C Model Minimum Pulse Width 'MAX10_CLK1_50'
-Slack : -3.000
-TNS   : -185.078
-
-Type  : Slow 1200mV 0C Model Minimum Pulse Width 'Controller:con|PS.rx'
-Slack : 0.425
-TNS   : 0.000
-
-Type  : Fast 1200mV 0C Model Setup 'Controller:con|PS.rx'
-Slack : -1.260
-TNS   : -2.502
-
-Type  : Fast 1200mV 0C Model Setup 'MAX10_CLK1_50'
-Slack : -0.713
-TNS   : -28.056
-
-Type  : Fast 1200mV 0C Model Hold 'MAX10_CLK1_50'
-Slack : 0.140
-TNS   : 0.000
-
-Type  : Fast 1200mV 0C Model Hold 'Controller:con|PS.rx'
-Slack : 1.640
-TNS   : 0.000
-
-Type  : Fast 1200mV 0C Model Minimum Pulse Width 'MAX10_CLK1_50'
-Slack : -3.000
-TNS   : -178.187
-
-Type  : Fast 1200mV 0C Model Minimum Pulse Width 'Controller:con|PS.rx'
-Slack : 0.436
+Type  : Fast 1200mV -40C Model Minimum Pulse Width 'Controller:con|PS.idle'
+Slack : 0.499
 TNS   : 0.000
 
 ------------------------------------------------------------

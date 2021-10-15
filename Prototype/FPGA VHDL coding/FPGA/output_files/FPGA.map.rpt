@@ -1,5 +1,5 @@
 Analysis & Synthesis report for FPGA
-Tue Oct 05 01:48:32 2021
+Fri Oct 15 16:50:38 2021
 Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
 
 
@@ -13,24 +13,29 @@ Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
   5. Analysis & Synthesis Source Files Read
   6. Analysis & Synthesis Resource Usage Summary
   7. Analysis & Synthesis Resource Utilization by Entity
-  8. State Machine - |FPGA|Controller:con|PS
-  9. State Machine - |FPGA|UART_TX:UART_TX_XPORT|r_SM_Main
- 10. State Machine - |FPGA|UART_RX:UART_RX_CC1310|r_SM_Main
- 11. State Machine - |FPGA|UART_TX:UART_TX_CC1310|r_SM_Main
- 12. State Machine - |FPGA|UART_RX:UART_RX_Xport|r_SM_Main
- 13. User-Specified and Inferred Latches
- 14. General Register Statistics
- 15. Multiplexer Restructuring Statistics (Restructuring Performed)
- 16. Parameter Settings for User Entity Instance: UART_RX:UART_RX_Xport
- 17. Parameter Settings for User Entity Instance: UART_TX:UART_TX_CC1310
- 18. Parameter Settings for User Entity Instance: UART_RX:UART_RX_CC1310
- 19. Parameter Settings for User Entity Instance: UART_TX:UART_TX_XPORT
- 20. Parameter Settings for User Entity Instance: FIFO_NandLand:fifo_fpga
- 21. Port Connectivity Checks: "UART_TX:UART_TX_XPORT"
- 22. Port Connectivity Checks: "UART_TX:UART_TX_CC1310"
- 23. Post-Synthesis Netlist Statistics for Top Partition
- 24. Elapsed Time Per Partition
- 25. Analysis & Synthesis Messages
+  8. Analysis & Synthesis RAM Summary
+  9. State Machine - |FPGA|Controller:con|PS_T
+ 10. State Machine - |FPGA|Controller:con|PS
+ 11. State Machine - |FPGA|UART_TX:UART_TX_XPORT|r_SM_Main
+ 12. State Machine - |FPGA|UART_RX:UART_RX_CC1310|r_SM_Main
+ 13. State Machine - |FPGA|UART_TX:UART_TX_CC1310|r_SM_Main
+ 14. State Machine - |FPGA|UART_RX:UART_RX_Xport|r_SM_Main
+ 15. User-Specified and Inferred Latches
+ 16. Registers Removed During Synthesis
+ 17. General Register Statistics
+ 18. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 19. Source assignments for Top-level Entity: |FPGA
+ 20. Source assignments for FIFO_BRAM:fifo_b|scfifo:scfifo_component|scfifo_1s61:auto_generated|a_dpfifo_b651:dpfifo|altsyncram_7rn1:FIFOram
+ 21. Parameter Settings for User Entity Instance: UART_RX:UART_RX_Xport
+ 22. Parameter Settings for User Entity Instance: UART_TX:UART_TX_CC1310
+ 23. Parameter Settings for User Entity Instance: UART_RX:UART_RX_CC1310
+ 24. Parameter Settings for User Entity Instance: UART_TX:UART_TX_XPORT
+ 25. Parameter Settings for User Entity Instance: FIFO_BRAM:fifo_b|scfifo:scfifo_component
+ 26. scfifo Parameter Settings by Entity Instance
+ 27. Port Connectivity Checks: "UART_TX:UART_TX_XPORT"
+ 28. Post-Synthesis Netlist Statistics for Top Partition
+ 29. Elapsed Time Per Partition
+ 30. Analysis & Synthesis Messages
 
 
 
@@ -56,18 +61,18 @@ refer to the applicable agreement for further details.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +------------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Tue Oct 05 01:48:32 2021       ;
+; Analysis & Synthesis Status        ; Successful - Fri Oct 15 16:50:38 2021       ;
 ; Quartus Prime Version              ; 18.1.0 Build 625 09/12/2018 SJ Lite Edition ;
 ; Revision Name                      ; FPGA                                        ;
 ; Top-level Entity Name              ; FPGA                                        ;
 ; Family                             ; MAX 10                                      ;
-; Total logic elements               ; 245                                         ;
-;     Total combinational functions  ; 213                                         ;
-;     Dedicated logic registers      ; 149                                         ;
-; Total registers                    ; 149                                         ;
-; Total pins                         ; 19                                          ;
+; Total logic elements               ; 234                                         ;
+;     Total combinational functions  ; 212                                         ;
+;     Dedicated logic registers      ; 141                                         ;
+; Total registers                    ; 141                                         ;
+; Total pins                         ; 10                                          ;
 ; Total virtual pins                 ; 0                                           ;
-; Total memory bits                  ; 0                                           ;
+; Total memory bits                  ; 4,096                                       ;
 ; Embedded Multiplier 9-bit elements ; 0                                           ;
 ; Total PLLs                         ; 0                                           ;
 ; UFM blocks                         ; 0                                           ;
@@ -80,7 +85,7 @@ refer to the applicable agreement for further details.
 +------------------------------------------------------------------+--------------------+--------------------+
 ; Option                                                           ; Setting            ; Default Value      ;
 +------------------------------------------------------------------+--------------------+--------------------+
-; Device                                                           ; 10M50DAF484C6GES   ;                    ;
+; Device                                                           ; 10M08SAE144I7G     ;                    ;
 ; Top-level entity name                                            ; FPGA               ; FPGA               ;
 ; Family name                                                      ; MAX 10             ; Cyclone V          ;
 ; Use smart compilation                                            ; Off                ; Off                ;
@@ -174,85 +179,129 @@ refer to the applicable agreement for further details.
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
-;     Processors 2-12        ;   0.0%      ;
+;     Processor 2            ;   0.0%      ;
+;     Processors 3-12        ;   0.0%      ;
 +----------------------------+-------------+
 
 
-+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Source Files Read                                                                                                                                                                          ;
-+----------------------------------+-----------------+-----------------+--------------------------------------------------------------------------------------------------------------------------------+---------+
-; File Name with User-Entered Path ; Used in Netlist ; File Type       ; File Name with Absolute Path                                                                                                   ; Library ;
-+----------------------------------+-----------------+-----------------+--------------------------------------------------------------------------------------------------------------------------------+---------+
-; UART_TX.vhd                      ; yes             ; User VHDL File  ; C:/Users/XORID/OneDrive - The University of Western Australia/21, M2-Win/ELEC5552 Elctrial Project/Code/FPGA/UART_TX.vhd       ;         ;
-; UART_RX.vhd                      ; yes             ; User VHDL File  ; C:/Users/XORID/OneDrive - The University of Western Australia/21, M2-Win/ELEC5552 Elctrial Project/Code/FPGA/UART_RX.vhd       ;         ;
-; FIFO_NandLand.vhd                ; yes             ; User VHDL File  ; C:/Users/XORID/OneDrive - The University of Western Australia/21, M2-Win/ELEC5552 Elctrial Project/Code/FPGA/FIFO_NandLand.vhd ;         ;
-; Controller.vhd                   ; yes             ; User VHDL File  ; C:/Users/XORID/OneDrive - The University of Western Australia/21, M2-Win/ELEC5552 Elctrial Project/Code/FPGA/Controller.vhd    ;         ;
-; FPGA.vhd                         ; yes             ; User VHDL File  ; C:/Users/XORID/OneDrive - The University of Western Australia/21, M2-Win/ELEC5552 Elctrial Project/Code/FPGA/FPGA.vhd          ;         ;
-+----------------------------------+-----------------+-----------------+--------------------------------------------------------------------------------------------------------------------------------+---------+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                                                                            ;
++----------------------------------+-----------------+------------------------------+-------------------------------------------------------------------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type                    ; File Name with Absolute Path                                                                                                        ; Library ;
++----------------------------------+-----------------+------------------------------+-------------------------------------------------------------------------------------------------------------------------------------+---------+
+; FIFO_BRAM.vhd                    ; yes             ; User Wizard-Generated File   ; C:/Users/XORID/OneDrive - The University of Western Australia/21, M2-Win/ELEC5552 Elctrial Project/Code/FPGA/FIFO_BRAM.vhd          ;         ;
+; UART_TX.vhd                      ; yes             ; User VHDL File               ; C:/Users/XORID/OneDrive - The University of Western Australia/21, M2-Win/ELEC5552 Elctrial Project/Code/FPGA/UART_TX.vhd            ;         ;
+; UART_RX.vhd                      ; yes             ; User VHDL File               ; C:/Users/XORID/OneDrive - The University of Western Australia/21, M2-Win/ELEC5552 Elctrial Project/Code/FPGA/UART_RX.vhd            ;         ;
+; Controller.vhd                   ; yes             ; User VHDL File               ; C:/Users/XORID/OneDrive - The University of Western Australia/21, M2-Win/ELEC5552 Elctrial Project/Code/FPGA/Controller.vhd         ;         ;
+; FPGA.vhd                         ; yes             ; User VHDL File               ; C:/Users/XORID/OneDrive - The University of Western Australia/21, M2-Win/ELEC5552 Elctrial Project/Code/FPGA/FPGA.vhd               ;         ;
+; debounce.vhd                     ; yes             ; User VHDL File               ; C:/Users/XORID/OneDrive - The University of Western Australia/21, M2-Win/ELEC5552 Elctrial Project/Code/FPGA/debounce.vhd           ;         ;
+; scfifo.tdf                       ; yes             ; Megafunction                 ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/scfifo.tdf                                                                   ;         ;
+; a_regfifo.inc                    ; yes             ; Megafunction                 ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/a_regfifo.inc                                                                ;         ;
+; a_dpfifo.inc                     ; yes             ; Megafunction                 ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/a_dpfifo.inc                                                                 ;         ;
+; a_i2fifo.inc                     ; yes             ; Megafunction                 ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/a_i2fifo.inc                                                                 ;         ;
+; a_fffifo.inc                     ; yes             ; Megafunction                 ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/a_fffifo.inc                                                                 ;         ;
+; a_f2fifo.inc                     ; yes             ; Megafunction                 ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/a_f2fifo.inc                                                                 ;         ;
+; aglobal181.inc                   ; yes             ; Megafunction                 ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/aglobal181.inc                                                               ;         ;
+; db/scfifo_1s61.tdf               ; yes             ; Auto-Generated Megafunction  ; C:/Users/XORID/OneDrive - The University of Western Australia/21, M2-Win/ELEC5552 Elctrial Project/Code/FPGA/db/scfifo_1s61.tdf     ;         ;
+; db/a_dpfifo_b651.tdf             ; yes             ; Auto-Generated Megafunction  ; C:/Users/XORID/OneDrive - The University of Western Australia/21, M2-Win/ELEC5552 Elctrial Project/Code/FPGA/db/a_dpfifo_b651.tdf   ;         ;
+; db/a_fefifo_t7e.tdf              ; yes             ; Auto-Generated Megafunction  ; C:/Users/XORID/OneDrive - The University of Western Australia/21, M2-Win/ELEC5552 Elctrial Project/Code/FPGA/db/a_fefifo_t7e.tdf    ;         ;
+; db/cntr_637.tdf                  ; yes             ; Auto-Generated Megafunction  ; C:/Users/XORID/OneDrive - The University of Western Australia/21, M2-Win/ELEC5552 Elctrial Project/Code/FPGA/db/cntr_637.tdf        ;         ;
+; db/altsyncram_7rn1.tdf           ; yes             ; Auto-Generated Megafunction  ; C:/Users/XORID/OneDrive - The University of Western Australia/21, M2-Win/ELEC5552 Elctrial Project/Code/FPGA/db/altsyncram_7rn1.tdf ;         ;
+; db/cntr_q2b.tdf                  ; yes             ; Auto-Generated Megafunction  ; C:/Users/XORID/OneDrive - The University of Western Australia/21, M2-Win/ELEC5552 Elctrial Project/Code/FPGA/db/cntr_q2b.tdf        ;         ;
++----------------------------------+-----------------+------------------------------+-------------------------------------------------------------------------------------------------------------------------------------+---------+
 
 
-+-------------------------------------------------------------------+
-; Analysis & Synthesis Resource Usage Summary                       ;
-+---------------------------------------------+---------------------+
-; Resource                                    ; Usage               ;
-+---------------------------------------------+---------------------+
-; Estimated Total logic elements              ; 245                 ;
-;                                             ;                     ;
-; Total combinational functions               ; 213                 ;
-; Logic element usage by number of LUT inputs ;                     ;
-;     -- 4 input functions                    ; 96                  ;
-;     -- 3 input functions                    ; 51                  ;
-;     -- <=2 input functions                  ; 66                  ;
-;                                             ;                     ;
-; Logic elements by mode                      ;                     ;
-;     -- normal mode                          ; 178                 ;
-;     -- arithmetic mode                      ; 35                  ;
-;                                             ;                     ;
-; Total registers                             ; 149                 ;
-;     -- Dedicated logic registers            ; 149                 ;
-;     -- I/O registers                        ; 0                   ;
-;                                             ;                     ;
-; I/O pins                                    ; 19                  ;
-;                                             ;                     ;
-; Embedded Multiplier 9-bit elements          ; 0                   ;
-;                                             ;                     ;
-; Maximum fan-out node                        ; MAX10_CLK1_50~input ;
-; Maximum fan-out                             ; 149                 ;
-; Total fan-out                               ; 1128                ;
-; Average fan-out                             ; 2.82                ;
-+---------------------------------------------+---------------------+
++---------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary             ;
++---------------------------------------------+-----------+
+; Resource                                    ; Usage     ;
++---------------------------------------------+-----------+
+; Estimated Total logic elements              ; 234       ;
+;                                             ;           ;
+; Total combinational functions               ; 212       ;
+; Logic element usage by number of LUT inputs ;           ;
+;     -- 4 input functions                    ; 107       ;
+;     -- 3 input functions                    ; 40        ;
+;     -- <=2 input functions                  ; 65        ;
+;                                             ;           ;
+; Logic elements by mode                      ;           ;
+;     -- normal mode                          ; 166       ;
+;     -- arithmetic mode                      ; 46        ;
+;                                             ;           ;
+; Total registers                             ; 141       ;
+;     -- Dedicated logic registers            ; 141       ;
+;     -- I/O registers                        ; 0         ;
+;                                             ;           ;
+; I/O pins                                    ; 10        ;
+; Total memory bits                           ; 4096      ;
+;                                             ;           ;
+; Embedded Multiplier 9-bit elements          ; 0         ;
+;                                             ;           ;
+; Maximum fan-out node                        ; clk~input ;
+; Maximum fan-out                             ; 149       ;
+; Total fan-out                               ; 1272      ;
+; Average fan-out                             ; 3.34      ;
++---------------------------------------------+-----------+
 
 
-+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                              ;
-+------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+-------------------------------+---------------+--------------+
-; Compilation Hierarchy Node   ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; UFM Blocks ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; ADC blocks ; Full Hierarchy Name           ; Entity Name   ; Library Name ;
-+------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+-------------------------------+---------------+--------------+
-; |FPGA                        ; 213 (2)             ; 149 (0)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 19   ; 0            ; 0          ; |FPGA                         ; FPGA          ; work         ;
-;    |Controller:con|          ; 12 (12)             ; 7 (7)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |FPGA|Controller:con          ; Controller    ; work         ;
-;    |FIFO_NandLand:fifo_fpga| ; 26 (26)             ; 32 (32)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |FPGA|FIFO_NandLand:fifo_fpga ; FIFO_NandLand ; work         ;
-;    |UART_RX:UART_RX_CC1310|  ; 48 (48)             ; 28 (28)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |FPGA|UART_RX:UART_RX_CC1310  ; UART_RX       ; work         ;
-;    |UART_RX:UART_RX_Xport|   ; 49 (49)             ; 28 (28)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |FPGA|UART_RX:UART_RX_Xport   ; UART_RX       ; work         ;
-;    |UART_TX:UART_TX_CC1310|  ; 42 (42)             ; 27 (27)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |FPGA|UART_TX:UART_TX_CC1310  ; UART_TX       ; work         ;
-;    |UART_TX:UART_TX_XPORT|   ; 34 (34)             ; 27 (27)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |FPGA|UART_TX:UART_TX_XPORT   ; UART_TX       ; work         ;
-+------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+-------------------------------+---------------+--------------+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                                                                                                                                          ;
++------------------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+---------------------------------------------------------------------------------------------------------------------------------------------+-----------------+--------------+
+; Compilation Hierarchy Node               ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; UFM Blocks ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; ADC blocks ; Full Hierarchy Name                                                                                                                         ; Entity Name     ; Library Name ;
++------------------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+---------------------------------------------------------------------------------------------------------------------------------------------+-----------------+--------------+
+; |FPGA                                    ; 212 (2)             ; 141 (0)                   ; 4096        ; 0          ; 0            ; 0       ; 0         ; 10   ; 0            ; 0          ; |FPGA                                                                                                                                       ; FPGA            ; work         ;
+;    |Controller:con|                      ; 11 (11)             ; 7 (7)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |FPGA|Controller:con                                                                                                                        ; Controller      ; work         ;
+;    |FIFO_BRAM:fifo_b|                    ; 38 (0)              ; 29 (0)                    ; 4096        ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |FPGA|FIFO_BRAM:fifo_b                                                                                                                      ; FIFO_BRAM       ; work         ;
+;       |scfifo:scfifo_component|          ; 38 (0)              ; 29 (0)                    ; 4096        ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |FPGA|FIFO_BRAM:fifo_b|scfifo:scfifo_component                                                                                              ; scfifo          ; work         ;
+;          |scfifo_1s61:auto_generated|    ; 38 (0)              ; 29 (0)                    ; 4096        ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |FPGA|FIFO_BRAM:fifo_b|scfifo:scfifo_component|scfifo_1s61:auto_generated                                                                   ; scfifo_1s61     ; work         ;
+;             |a_dpfifo_b651:dpfifo|       ; 38 (2)              ; 29 (0)                    ; 4096        ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |FPGA|FIFO_BRAM:fifo_b|scfifo:scfifo_component|scfifo_1s61:auto_generated|a_dpfifo_b651:dpfifo                                              ; a_dpfifo_b651   ; work         ;
+;                |a_fefifo_t7e:fifo_state| ; 18 (9)              ; 11 (2)                    ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |FPGA|FIFO_BRAM:fifo_b|scfifo:scfifo_component|scfifo_1s61:auto_generated|a_dpfifo_b651:dpfifo|a_fefifo_t7e:fifo_state                      ; a_fefifo_t7e    ; work         ;
+;                   |cntr_637:count_usedw| ; 9 (9)               ; 9 (9)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |FPGA|FIFO_BRAM:fifo_b|scfifo:scfifo_component|scfifo_1s61:auto_generated|a_dpfifo_b651:dpfifo|a_fefifo_t7e:fifo_state|cntr_637:count_usedw ; cntr_637        ; work         ;
+;                |altsyncram_7rn1:FIFOram| ; 0 (0)               ; 0 (0)                     ; 4096        ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |FPGA|FIFO_BRAM:fifo_b|scfifo:scfifo_component|scfifo_1s61:auto_generated|a_dpfifo_b651:dpfifo|altsyncram_7rn1:FIFOram                      ; altsyncram_7rn1 ; work         ;
+;                |cntr_q2b:rd_ptr_count|   ; 9 (9)               ; 9 (9)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |FPGA|FIFO_BRAM:fifo_b|scfifo:scfifo_component|scfifo_1s61:auto_generated|a_dpfifo_b651:dpfifo|cntr_q2b:rd_ptr_count                        ; cntr_q2b        ; work         ;
+;                |cntr_q2b:wr_ptr|         ; 9 (9)               ; 9 (9)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |FPGA|FIFO_BRAM:fifo_b|scfifo:scfifo_component|scfifo_1s61:auto_generated|a_dpfifo_b651:dpfifo|cntr_q2b:wr_ptr                              ; cntr_q2b        ; work         ;
+;    |UART_RX:UART_RX_CC1310|              ; 48 (48)             ; 26 (26)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |FPGA|UART_RX:UART_RX_CC1310                                                                                                                ; UART_RX         ; work         ;
+;    |UART_RX:UART_RX_Xport|               ; 45 (45)             ; 25 (25)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |FPGA|UART_RX:UART_RX_Xport                                                                                                                 ; UART_RX         ; work         ;
+;    |UART_TX:UART_TX_CC1310|              ; 32 (32)             ; 25 (25)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |FPGA|UART_TX:UART_TX_CC1310                                                                                                                ; UART_TX         ; work         ;
+;    |UART_TX:UART_TX_XPORT|               ; 31 (31)             ; 25 (25)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |FPGA|UART_TX:UART_TX_XPORT                                                                                                                 ; UART_TX         ; work         ;
+;    |debounce:debounce_rst|               ; 5 (5)               ; 4 (4)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |FPGA|debounce:debounce_rst                                                                                                                 ; debounce        ; work         ;
++------------------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+---------------------------------------------------------------------------------------------------------------------------------------------+-----------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
 
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis RAM Summary                                                                                                                                                                                                ;
++-----------------------------------------------------------------------------------------------------------------------------+------+------------------+--------------+--------------+--------------+--------------+------+------+
+; Name                                                                                                                        ; Type ; Mode             ; Port A Depth ; Port A Width ; Port B Depth ; Port B Width ; Size ; MIF  ;
++-----------------------------------------------------------------------------------------------------------------------------+------+------------------+--------------+--------------+--------------+--------------+------+------+
+; FIFO_BRAM:fifo_b|scfifo:scfifo_component|scfifo_1s61:auto_generated|a_dpfifo_b651:dpfifo|altsyncram_7rn1:FIFOram|ALTSYNCRAM ; M9K  ; Simple Dual Port ; 512          ; 8            ; 512          ; 8            ; 4096 ; None ;
++-----------------------------------------------------------------------------------------------------------------------------+------+------------------+--------------+--------------+--------------+--------------+------+------+
+
+
 Encoding Type:  One-Hot
-+-------------------------------------------------------------------------------------+
-; State Machine - |FPGA|Controller:con|PS                                             ;
-+-------------+---------+-------------+-------+---------+-------+------------+--------+
-; Name        ; PS.idle ; PS.tx_ready ; PS.rx ; PS.tx_2 ; PS.tx ; PS.rx_done ; PS.int ;
-+-------------+---------+-------------+-------+---------+-------+------------+--------+
-; PS.int      ; 0       ; 0           ; 0     ; 0       ; 0     ; 0          ; 0      ;
-; PS.rx_done  ; 0       ; 0           ; 0     ; 0       ; 0     ; 1          ; 1      ;
-; PS.tx       ; 0       ; 0           ; 0     ; 0       ; 1     ; 0          ; 1      ;
-; PS.tx_2     ; 0       ; 0           ; 0     ; 1       ; 0     ; 0          ; 1      ;
-; PS.rx       ; 0       ; 0           ; 1     ; 0       ; 0     ; 0          ; 1      ;
-; PS.tx_ready ; 0       ; 1           ; 0     ; 0       ; 0     ; 0          ; 1      ;
-; PS.idle     ; 1       ; 0           ; 0     ; 0       ; 0     ; 0          ; 1      ;
-+-------------+---------+-------------+-------+---------+-------+------------+--------+
++-------------------------------------------------------------------------------+
+; State Machine - |FPGA|Controller:con|PS_T                                     ;
++---------------+--------------+-----------+---------------+---------+----------+
+; Name          ; PS_T.tx_done ; PS_T.idle ; PS_T.tx_ready ; PS_T.tx ; PS_T.int ;
++---------------+--------------+-----------+---------------+---------+----------+
+; PS_T.int      ; 0            ; 0         ; 0             ; 0       ; 0        ;
+; PS_T.tx       ; 0            ; 0         ; 0             ; 1       ; 1        ;
+; PS_T.tx_ready ; 0            ; 0         ; 1             ; 0       ; 1        ;
+; PS_T.idle     ; 0            ; 1         ; 0             ; 0       ; 1        ;
+; PS_T.tx_done  ; 1            ; 0         ; 0             ; 0       ; 1        ;
++---------------+--------------+-----------+---------------+---------+----------+
+
+
+Encoding Type:  One-Hot
++-----------------------------------------+
+; State Machine - |FPGA|Controller:con|PS ;
++---------+---------+-------+-------------+
+; Name    ; PS.idle ; PS.rx ; PS.int      ;
++---------+---------+-------+-------------+
+; PS.int  ; 0       ; 0     ; 0           ;
+; PS.rx   ; 0       ; 1     ; 1           ;
+; PS.idle ; 1       ; 0     ; 1           ;
++---------+---------+-------+-------------+
 
 
 Encoding Type:  One-Hot
@@ -311,17 +360,28 @@ Encoding Type:  One-Hot
 +--------------------------+---------------------+-------------------------+--------------------------+--------------------------+------------------+
 
 
-+--------------------------------------------------------------------------------------------------------+
-; User-Specified and Inferred Latches                                                                    ;
-+----------------------------------------------------+--------------------------+------------------------+
-; Latch Name                                         ; Latch Enable Signal      ; Free of Timing Hazards ;
-+----------------------------------------------------+--------------------------+------------------------+
-; Controller:con|tx_dv                               ; Controller:con|tx_dv     ; yes                    ;
-; Controller:con|wr_en                               ; GND                      ; yes                    ;
-; Controller:con|rd_en                               ; Controller:con|Selector0 ; yes                    ;
-; Number of user-specified and inferred latches = 3  ;                          ;                        ;
-+----------------------------------------------------+--------------------------+------------------------+
++-----------------------------------------------------------------------------------------------------------+
+; User-Specified and Inferred Latches                                                                       ;
++----------------------------------------------------+-----------------------------+------------------------+
+; Latch Name                                         ; Latch Enable Signal         ; Free of Timing Hazards ;
++----------------------------------------------------+-----------------------------+------------------------+
+; Controller:con|RTS_X                               ; Controller:con|PS.idle      ; yes                    ;
+; Controller:con|tx_dv                               ; Controller:con|Selector4    ; yes                    ;
+; Controller:con|rd_en                               ; Controller:con|PS_T.tx_done ; yes                    ;
+; Controller:con|wr_en                               ; GND                         ; yes                    ;
+; Number of user-specified and inferred latches = 4  ;                             ;                        ;
++----------------------------------------------------+-----------------------------+------------------------+
 Note: All latches listed above may not be present at the end of synthesis due to various synthesis optimizations.
+
+
++---------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                        ;
++---------------------------------------+-----------------------------------+
+; Register name                         ; Reason for Removal                ;
++---------------------------------------+-----------------------------------+
+; Controller:con|PS_T.int               ; Merged with Controller:con|PS.int ;
+; Total Number of Removed Registers = 1 ;                                   ;
++---------------------------------------+-----------------------------------+
 
 
 +------------------------------------------------------+
@@ -329,37 +389,55 @@ Note: All latches listed above may not be present at the end of synthesis due to
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 149   ;
-; Number of registers using Synchronous Clear  ; 39    ;
-; Number of registers using Synchronous Load   ; 8     ;
-; Number of registers using Asynchronous Clear ; 7     ;
+; Total registers                              ; 141   ;
+; Number of registers using Synchronous Clear  ; 26    ;
+; Number of registers using Synchronous Load   ; 0     ;
+; Number of registers using Asynchronous Clear ; 36    ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 83    ;
+; Number of registers using Clock Enable       ; 69    ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
 
-+---------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------+
-; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                      ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------+
-; 3:1                ; 8 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; Yes        ; |FPGA|UART_TX:UART_TX_CC1310|r_TX_Data[0]       ;
-; 3:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |FPGA|FIFO_NandLand:fifo_fpga|r_FIFO_DATA[0][3] ;
-; 3:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |FPGA|FIFO_NandLand:fifo_fpga|r_FIFO_DATA[1][5] ;
-; 3:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |FPGA|FIFO_NandLand:fifo_fpga|r_FIFO_DATA[2][3] ;
-; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |FPGA|FIFO_NandLand:fifo_fpga|r_FIFO_COUNT[2]   ;
-; 4:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; Yes        ; |FPGA|FIFO_NandLand:fifo_fpga|r_RD_INDEX[1]     ;
-; 4:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; Yes        ; |FPGA|FIFO_NandLand:fifo_fpga|r_WR_INDEX[0]     ;
-; 4:1                ; 9 bits    ; 18 LEs        ; 9 LEs                ; 9 LEs                  ; Yes        ; |FPGA|UART_TX:UART_TX_XPORT|r_Clk_Count[0]      ;
-; 4:1                ; 9 bits    ; 18 LEs        ; 9 LEs                ; 9 LEs                  ; Yes        ; |FPGA|UART_TX:UART_TX_CC1310|r_Clk_Count[0]     ;
-; 7:1                ; 9 bits    ; 36 LEs        ; 9 LEs                ; 27 LEs                 ; Yes        ; |FPGA|UART_RX:UART_RX_CC1310|r_Clk_Count[2]     ;
-; 7:1                ; 9 bits    ; 36 LEs        ; 9 LEs                ; 27 LEs                 ; Yes        ; |FPGA|UART_RX:UART_RX_Xport|r_Clk_Count[5]      ;
-; 3:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |FPGA|UART_TX:UART_TX_XPORT|r_Bit_Index         ;
-; 3:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |FPGA|UART_RX:UART_RX_CC1310|r_Bit_Index        ;
-; 3:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |FPGA|UART_TX:UART_TX_CC1310|r_Bit_Index        ;
-; 3:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |FPGA|UART_RX:UART_RX_Xport|r_Bit_Index         ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                            ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                  ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------+
+; 4:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |FPGA|UART_TX:UART_TX_XPORT|r_Clk_Count[3]  ;
+; 4:1                ; 6 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |FPGA|UART_TX:UART_TX_CC1310|r_Clk_Count[2] ;
+; 7:1                ; 7 bits    ; 28 LEs        ; 7 LEs                ; 21 LEs                 ; Yes        ; |FPGA|UART_RX:UART_RX_CC1310|r_Clk_Count[3] ;
+; 7:1                ; 6 bits    ; 24 LEs        ; 6 LEs                ; 18 LEs                 ; Yes        ; |FPGA|UART_RX:UART_RX_Xport|r_Clk_Count[1]  ;
+; 3:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |FPGA|UART_TX:UART_TX_XPORT|r_Bit_Index     ;
+; 3:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |FPGA|UART_RX:UART_RX_CC1310|r_Bit_Index    ;
+; 3:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |FPGA|UART_TX:UART_TX_CC1310|r_Bit_Index    ;
+; 3:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |FPGA|UART_RX:UART_RX_Xport|r_Bit_Index     ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------+
+
+
++------------------------------------------------+
+; Source assignments for Top-level Entity: |FPGA ;
++------------+--------+------+-------------------+
+; Assignment ; Value  ; From ; To                ;
++------------+--------+------+-------------------+
+; LOCATION   ; Pin_88 ; -    ; clk               ;
+; LOCATION   ; Pin_43 ; -    ; tx_x              ;
+; LOCATION   ; Pin_33 ; -    ; tx_c              ;
+; LOCATION   ; Pin_50 ; -    ; rx_x              ;
+; LOCATION   ; Pin_57 ; -    ; rx_c              ;
+; LOCATION   ; Pin_44 ; -    ; CTS_X             ;
+; LOCATION   ; Pin_46 ; -    ; RTS_X             ;
+; LOCATION   ; Pin_47 ; -    ; res               ;
++------------+--------+------+-------------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------+
+; Source assignments for FIFO_BRAM:fifo_b|scfifo:scfifo_component|scfifo_1s61:auto_generated|a_dpfifo_b651:dpfifo|altsyncram_7rn1:FIFOram ;
++---------------------------------+--------------------+------+---------------------------------------------------------------------------+
+; Assignment                      ; Value              ; From ; To                                                                        ;
++---------------------------------+--------------------+------+---------------------------------------------------------------------------+
+; OPTIMIZE_POWER_DURING_SYNTHESIS ; NORMAL_COMPILATION ; -    ; -                                                                         ;
++---------------------------------+--------------------+------+---------------------------------------------------------------------------+
 
 
 +--------------------------------------------------------------------+
@@ -367,7 +445,7 @@ Note: All latches listed above may not be present at the end of synthesis due to
 +----------------+-------+-------------------------------------------+
 ; Parameter Name ; Value ; Type                                      ;
 +----------------+-------+-------------------------------------------+
-; g_CLKS_PER_BIT ; 434   ; Signed Integer                            ;
+; g_clks_per_bit ; 54    ; Signed Integer                            ;
 +----------------+-------+-------------------------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
@@ -377,7 +455,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+-------+--------------------------------------------+
 ; Parameter Name ; Value ; Type                                       ;
 +----------------+-------+--------------------------------------------+
-; g_CLKS_PER_BIT ; 434   ; Signed Integer                             ;
+; g_clks_per_bit ; 54    ; Signed Integer                             ;
 +----------------+-------+--------------------------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
@@ -387,7 +465,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+-------+--------------------------------------------+
 ; Parameter Name ; Value ; Type                                       ;
 +----------------+-------+--------------------------------------------+
-; g_CLKS_PER_BIT ; 434   ; Signed Integer                             ;
+; g_clks_per_bit ; 100   ; Signed Integer                             ;
 +----------------+-------+--------------------------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
@@ -397,33 +475,57 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+-------+-------------------------------------------+
 ; Parameter Name ; Value ; Type                                      ;
 +----------------+-------+-------------------------------------------+
-; g_CLKS_PER_BIT ; 434   ; Signed Integer                            ;
+; g_clks_per_bit ; 100   ; Signed Integer                            ;
 +----------------+-------+-------------------------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
-+----------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: FIFO_NandLand:fifo_fpga ;
-+----------------+-------+---------------------------------------------+
-; Parameter Name ; Value ; Type                                        ;
-+----------------+-------+---------------------------------------------+
-; g_width        ; 8     ; Signed Integer                              ;
-; g_depth        ; 3     ; Signed Integer                              ;
-+----------------+-------+---------------------------------------------+
++---------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: FIFO_BRAM:fifo_b|scfifo:scfifo_component ;
++-------------------------+-------------+-----------------------------------------------+
+; Parameter Name          ; Value       ; Type                                          ;
++-------------------------+-------------+-----------------------------------------------+
+; AUTO_CARRY_CHAINS       ; ON          ; AUTO_CARRY                                    ;
+; IGNORE_CARRY_BUFFERS    ; OFF         ; IGNORE_CARRY                                  ;
+; AUTO_CASCADE_CHAINS     ; ON          ; AUTO_CASCADE                                  ;
+; IGNORE_CASCADE_BUFFERS  ; OFF         ; IGNORE_CASCADE                                ;
+; lpm_width               ; 8           ; Signed Integer                                ;
+; LPM_NUMWORDS            ; 512         ; Signed Integer                                ;
+; LPM_WIDTHU              ; 9           ; Signed Integer                                ;
+; LPM_SHOWAHEAD           ; OFF         ; Untyped                                       ;
+; UNDERFLOW_CHECKING      ; ON          ; Untyped                                       ;
+; OVERFLOW_CHECKING       ; ON          ; Untyped                                       ;
+; ALLOW_RWCYCLE_WHEN_FULL ; OFF         ; Untyped                                       ;
+; ADD_RAM_OUTPUT_REGISTER ; OFF         ; Untyped                                       ;
+; ALMOST_FULL_VALUE       ; 0           ; Untyped                                       ;
+; ALMOST_EMPTY_VALUE      ; 0           ; Untyped                                       ;
+; ENABLE_ECC              ; FALSE       ; Untyped                                       ;
+; USE_EAB                 ; ON          ; Untyped                                       ;
+; MAXIMIZE_SPEED          ; 5           ; Untyped                                       ;
+; DEVICE_FAMILY           ; MAX 10      ; Untyped                                       ;
+; OPTIMIZE_FOR_SPEED      ; 5           ; Untyped                                       ;
+; CBXI_PARAMETER          ; scfifo_1s61 ; Untyped                                       ;
++-------------------------+-------------+-----------------------------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------+
+; scfifo Parameter Settings by Entity Instance                          ;
++----------------------------+------------------------------------------+
+; Name                       ; Value                                    ;
++----------------------------+------------------------------------------+
+; Number of entity instances ; 1                                        ;
+; Entity Instance            ; FIFO_BRAM:fifo_b|scfifo:scfifo_component ;
+;     -- FIFO Type           ; Single Clock                             ;
+;     -- lpm_width           ; 8                                        ;
+;     -- LPM_NUMWORDS        ; 512                                      ;
+;     -- LPM_SHOWAHEAD       ; OFF                                      ;
+;     -- USE_EAB             ; ON                                       ;
++----------------------------+------------------------------------------+
 
 
 +---------------------------------------------------------------------------------------------------------------------+
 ; Port Connectivity Checks: "UART_TX:UART_TX_XPORT"                                                                   ;
-+-----------+--------+----------+-------------------------------------------------------------------------------------+
-; Port      ; Type   ; Severity ; Details                                                                             ;
-+-----------+--------+----------+-------------------------------------------------------------------------------------+
-; o_tx_done ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-+-----------+--------+----------+-------------------------------------------------------------------------------------+
-
-
-+---------------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "UART_TX:UART_TX_CC1310"                                                                  ;
 +-----------+--------+----------+-------------------------------------------------------------------------------------+
 ; Port      ; Type   ; Severity ; Details                                                                             ;
 +-----------+--------+----------+-------------------------------------------------------------------------------------+
@@ -436,26 +538,26 @@ Note: In order to hide this table in the UI and the text report file, please set
 +-----------------------+-----------------------------+
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
-; boundary_port         ; 19                          ;
-; cycloneiii_ff         ; 149                         ;
-;     CLR               ; 7                           ;
-;     ENA               ; 36                          ;
-;     ENA SCLR          ; 39                          ;
-;     ENA SLD           ; 8                           ;
-;     plain             ; 59                          ;
-; cycloneiii_lcell_comb ; 214                         ;
-;     arith             ; 35                          ;
-;         2 data inputs ; 33                          ;
-;         3 data inputs ; 2                           ;
-;     normal            ; 179                         ;
-;         0 data inputs ; 1                           ;
-;         1 data inputs ; 4                           ;
-;         2 data inputs ; 29                          ;
-;         3 data inputs ; 49                          ;
-;         4 data inputs ; 96                          ;
+; boundary_port         ; 10                          ;
+; cycloneiii_ff         ; 141                         ;
+;     CLR               ; 9                           ;
+;     ENA               ; 16                          ;
+;     ENA CLR           ; 27                          ;
+;     ENA SCLR          ; 26                          ;
+;     plain             ; 63                          ;
+; cycloneiii_lcell_comb ; 213                         ;
+;     arith             ; 46                          ;
+;         2 data inputs ; 38                          ;
+;         3 data inputs ; 8                           ;
+;     normal            ; 167                         ;
+;         1 data inputs ; 9                           ;
+;         2 data inputs ; 19                          ;
+;         3 data inputs ; 32                          ;
+;         4 data inputs ; 107                         ;
+; cycloneiii_ram_block  ; 8                           ;
 ;                       ;                             ;
 ; Max LUT depth         ; 5.00                        ;
-; Average LUT depth     ; 2.60                        ;
+; Average LUT depth     ; 2.48                        ;
 +-----------------------+-----------------------------+
 
 
@@ -474,11 +576,13 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
-    Info: Processing started: Tue Oct 05 01:48:22 2021
+    Info: Processing started: Fri Oct 15 16:50:27 2021
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off FPGA -c FPGA
-Info (125069): Default assignment values were changed in the current version of the Quartus Prime software -- changes to default assignments values are contained in file c:/intelfpga_lite/18.1/quartus/bin64/assignment_defaults.qdf
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 12 of the 12 processors detected
+Info (12021): Found 2 design units, including 1 entities, in source file fifo_bram.vhd
+    Info (12022): Found design unit 1: fifo_bram-SYN File: C:/Users/XORID/OneDrive - The University of Western Australia/21, M2-Win/ELEC5552 Elctrial Project/Code/FPGA/FIFO_BRAM.vhd Line: 57
+    Info (12023): Found entity 1: FIFO_BRAM File: C:/Users/XORID/OneDrive - The University of Western Australia/21, M2-Win/ELEC5552 Elctrial Project/Code/FPGA/FIFO_BRAM.vhd Line: 42
 Info (12021): Found 2 design units, including 1 entities, in source file uart_tx.vhd
     Info (12022): Found design unit 1: UART_TX-RTL File: C:/Users/XORID/OneDrive - The University of Western Australia/21, M2-Win/ELEC5552 Elctrial Project/Code/FPGA/UART_TX.vhd Line: 33
     Info (12023): Found entity 1: UART_TX File: C:/Users/XORID/OneDrive - The University of Western Australia/21, M2-Win/ELEC5552 Elctrial Project/Code/FPGA/UART_TX.vhd Line: 18
@@ -488,62 +592,83 @@ Info (12021): Found 2 design units, including 1 entities, in source file uart_rx
 Info (12021): Found 2 design units, including 1 entities, in source file ss_decoder.vhd
     Info (12022): Found design unit 1: ss_decoder-arc File: C:/Users/XORID/OneDrive - The University of Western Australia/21, M2-Win/ELEC5552 Elctrial Project/Code/FPGA/ss_decoder.vhd Line: 12
     Info (12023): Found entity 1: ss_decoder File: C:/Users/XORID/OneDrive - The University of Western Australia/21, M2-Win/ELEC5552 Elctrial Project/Code/FPGA/ss_decoder.vhd Line: 5
-Info (12021): Found 2 design units, including 1 entities, in source file fifo_nandland.vhd
-    Info (12022): Found design unit 1: FIFO_NandLand-rtl File: C:/Users/XORID/OneDrive - The University of Western Australia/21, M2-Win/ELEC5552 Elctrial Project/Code/FPGA/FIFO_NandLand.vhd Line: 49
-    Info (12023): Found entity 1: FIFO_NandLand File: C:/Users/XORID/OneDrive - The University of Western Australia/21, M2-Win/ELEC5552 Elctrial Project/Code/FPGA/FIFO_NandLand.vhd Line: 28
 Info (12021): Found 2 design units, including 1 entities, in source file controller.vhd
     Info (12022): Found design unit 1: Controller-RTL File: C:/Users/XORID/OneDrive - The University of Western Australia/21, M2-Win/ELEC5552 Elctrial Project/Code/FPGA/Controller.vhd Line: 18
     Info (12023): Found entity 1: Controller File: C:/Users/XORID/OneDrive - The University of Western Australia/21, M2-Win/ELEC5552 Elctrial Project/Code/FPGA/Controller.vhd Line: 5
-Info (12021): Found 1 design units, including 1 entities, in source file de10_lite_golden_top.v
-    Info (12023): Found entity 1: DE10_LITE_Golden_Top File: C:/Users/XORID/OneDrive - The University of Western Australia/21, M2-Win/ELEC5552 Elctrial Project/Code/FPGA/DE10_LITE_Golden_Top.v Line: 29
 Info (12021): Found 2 design units, including 1 entities, in source file fpga.vhd
-    Info (12022): Found design unit 1: FPGA-RTL File: C:/Users/XORID/OneDrive - The University of Western Australia/21, M2-Win/ELEC5552 Elctrial Project/Code/FPGA/FPGA.vhd Line: 32
+    Info (12022): Found design unit 1: FPGA-RTL File: C:/Users/XORID/OneDrive - The University of Western Australia/21, M2-Win/ELEC5552 Elctrial Project/Code/FPGA/FPGA.vhd Line: 33
     Info (12023): Found entity 1: FPGA File: C:/Users/XORID/OneDrive - The University of Western Australia/21, M2-Win/ELEC5552 Elctrial Project/Code/FPGA/FPGA.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file debounce.vhd
+    Info (12022): Found design unit 1: debounce-arc File: C:/Users/XORID/OneDrive - The University of Western Australia/21, M2-Win/ELEC5552 Elctrial Project/Code/FPGA/debounce.vhd Line: 13
+    Info (12023): Found entity 1: debounce File: C:/Users/XORID/OneDrive - The University of Western Australia/21, M2-Win/ELEC5552 Elctrial Project/Code/FPGA/debounce.vhd Line: 5
 Info (12127): Elaborating entity "FPGA" for the top level hierarchy
-Warning (10036): Verilog HDL or VHDL warning at FPGA.vhd(113): object "tx_done" assigned a value but never read File: C:/Users/XORID/OneDrive - The University of Western Australia/21, M2-Win/ELEC5552 Elctrial Project/Code/FPGA/FPGA.vhd Line: 113
-Info (12128): Elaborating entity "UART_RX" for hierarchy "UART_RX:UART_RX_Xport" File: C:/Users/XORID/OneDrive - The University of Western Australia/21, M2-Win/ELEC5552 Elctrial Project/Code/FPGA/FPGA.vhd Line: 121
-Info (12128): Elaborating entity "UART_TX" for hierarchy "UART_TX:UART_TX_CC1310" File: C:/Users/XORID/OneDrive - The University of Western Australia/21, M2-Win/ELEC5552 Elctrial Project/Code/FPGA/FPGA.vhd Line: 128
-Info (12128): Elaborating entity "FIFO_NandLand" for hierarchy "FIFO_NandLand:fifo_fpga" File: C:/Users/XORID/OneDrive - The University of Western Australia/21, M2-Win/ELEC5552 Elctrial Project/Code/FPGA/FPGA.vhd Line: 156
-Info (12128): Elaborating entity "Controller" for hierarchy "Controller:con" File: C:/Users/XORID/OneDrive - The University of Western Australia/21, M2-Win/ELEC5552 Elctrial Project/Code/FPGA/FPGA.vhd Line: 176
-Warning (10541): VHDL Signal Declaration warning at Controller.vhd(13): used implicit default value for signal "CTS_X" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: C:/Users/XORID/OneDrive - The University of Western Australia/21, M2-Win/ELEC5552 Elctrial Project/Code/FPGA/Controller.vhd Line: 13
-Warning (10541): VHDL Signal Declaration warning at Controller.vhd(13): used implicit default value for signal "RTS_C" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: C:/Users/XORID/OneDrive - The University of Western Australia/21, M2-Win/ELEC5552 Elctrial Project/Code/FPGA/Controller.vhd Line: 13
-Warning (10492): VHDL Process Statement warning at Controller.vhd(27): signal "Reset" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/XORID/OneDrive - The University of Western Australia/21, M2-Win/ELEC5552 Elctrial Project/Code/FPGA/Controller.vhd Line: 27
-Warning (10492): VHDL Process Statement warning at Controller.vhd(33): signal "PS" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/XORID/OneDrive - The University of Western Australia/21, M2-Win/ELEC5552 Elctrial Project/Code/FPGA/Controller.vhd Line: 33
-Warning (10492): VHDL Process Statement warning at Controller.vhd(52): signal "RTS_X" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/XORID/OneDrive - The University of Western Australia/21, M2-Win/ELEC5552 Elctrial Project/Code/FPGA/Controller.vhd Line: 52
-Warning (10492): VHDL Process Statement warning at Controller.vhd(52): signal "fifo_f" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/XORID/OneDrive - The University of Western Australia/21, M2-Win/ELEC5552 Elctrial Project/Code/FPGA/Controller.vhd Line: 52
-Warning (10492): VHDL Process Statement warning at Controller.vhd(54): signal "CTS_C" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/XORID/OneDrive - The University of Western Australia/21, M2-Win/ELEC5552 Elctrial Project/Code/FPGA/Controller.vhd Line: 54
-Warning (10492): VHDL Process Statement warning at Controller.vhd(54): signal "fifo_e" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/XORID/OneDrive - The University of Western Australia/21, M2-Win/ELEC5552 Elctrial Project/Code/FPGA/Controller.vhd Line: 54
-Warning (10492): VHDL Process Statement warning at Controller.vhd(60): signal "rx_dv" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/XORID/OneDrive - The University of Western Australia/21, M2-Win/ELEC5552 Elctrial Project/Code/FPGA/Controller.vhd Line: 60
-Warning (10631): VHDL Process Statement warning at Controller.vhd(38): inferring latch(es) for signal or variable "wr_en", which holds its previous value in one or more paths through the process File: C:/Users/XORID/OneDrive - The University of Western Australia/21, M2-Win/ELEC5552 Elctrial Project/Code/FPGA/Controller.vhd Line: 38
-Warning (10631): VHDL Process Statement warning at Controller.vhd(38): inferring latch(es) for signal or variable "rd_en", which holds its previous value in one or more paths through the process File: C:/Users/XORID/OneDrive - The University of Western Australia/21, M2-Win/ELEC5552 Elctrial Project/Code/FPGA/Controller.vhd Line: 38
-Warning (10631): VHDL Process Statement warning at Controller.vhd(38): inferring latch(es) for signal or variable "tx_dv", which holds its previous value in one or more paths through the process File: C:/Users/XORID/OneDrive - The University of Western Australia/21, M2-Win/ELEC5552 Elctrial Project/Code/FPGA/Controller.vhd Line: 38
-Info (10041): Inferred latch for "tx_dv" at Controller.vhd(38) File: C:/Users/XORID/OneDrive - The University of Western Australia/21, M2-Win/ELEC5552 Elctrial Project/Code/FPGA/Controller.vhd Line: 38
-Info (10041): Inferred latch for "rd_en" at Controller.vhd(38) File: C:/Users/XORID/OneDrive - The University of Western Australia/21, M2-Win/ELEC5552 Elctrial Project/Code/FPGA/Controller.vhd Line: 38
-Info (10041): Inferred latch for "wr_en" at Controller.vhd(38) File: C:/Users/XORID/OneDrive - The University of Western Australia/21, M2-Win/ELEC5552 Elctrial Project/Code/FPGA/Controller.vhd Line: 38
-Warning (13024): Output pins are stuck at VCC or GND
-    Warning (13410): Pin "CTS_X" is stuck at GND File: C:/Users/XORID/OneDrive - The University of Western Australia/21, M2-Win/ELEC5552 Elctrial Project/Code/FPGA/FPGA.vhd Line: 15
-    Warning (13410): Pin "RTS_C" is stuck at GND File: C:/Users/XORID/OneDrive - The University of Western Australia/21, M2-Win/ELEC5552 Elctrial Project/Code/FPGA/FPGA.vhd Line: 15
+Info (12128): Elaborating entity "UART_RX" for hierarchy "UART_RX:UART_RX_Xport" File: C:/Users/XORID/OneDrive - The University of Western Australia/21, M2-Win/ELEC5552 Elctrial Project/Code/FPGA/FPGA.vhd Line: 132
+Info (12128): Elaborating entity "UART_TX" for hierarchy "UART_TX:UART_TX_CC1310" File: C:/Users/XORID/OneDrive - The University of Western Australia/21, M2-Win/ELEC5552 Elctrial Project/Code/FPGA/FPGA.vhd Line: 140
+Info (12128): Elaborating entity "UART_RX" for hierarchy "UART_RX:UART_RX_CC1310" File: C:/Users/XORID/OneDrive - The University of Western Australia/21, M2-Win/ELEC5552 Elctrial Project/Code/FPGA/FPGA.vhd Line: 152
+Info (12128): Elaborating entity "UART_TX" for hierarchy "UART_TX:UART_TX_XPORT" File: C:/Users/XORID/OneDrive - The University of Western Australia/21, M2-Win/ELEC5552 Elctrial Project/Code/FPGA/FPGA.vhd Line: 160
+Info (12128): Elaborating entity "FIFO_BRAM" for hierarchy "FIFO_BRAM:fifo_b" File: C:/Users/XORID/OneDrive - The University of Western Australia/21, M2-Win/ELEC5552 Elctrial Project/Code/FPGA/FPGA.vhd Line: 172
+Info (12128): Elaborating entity "scfifo" for hierarchy "FIFO_BRAM:fifo_b|scfifo:scfifo_component" File: C:/Users/XORID/OneDrive - The University of Western Australia/21, M2-Win/ELEC5552 Elctrial Project/Code/FPGA/FIFO_BRAM.vhd Line: 96
+Info (12130): Elaborated megafunction instantiation "FIFO_BRAM:fifo_b|scfifo:scfifo_component" File: C:/Users/XORID/OneDrive - The University of Western Australia/21, M2-Win/ELEC5552 Elctrial Project/Code/FPGA/FIFO_BRAM.vhd Line: 96
+Info (12133): Instantiated megafunction "FIFO_BRAM:fifo_b|scfifo:scfifo_component" with the following parameter: File: C:/Users/XORID/OneDrive - The University of Western Australia/21, M2-Win/ELEC5552 Elctrial Project/Code/FPGA/FIFO_BRAM.vhd Line: 96
+    Info (12134): Parameter "add_ram_output_register" = "OFF"
+    Info (12134): Parameter "intended_device_family" = "MAX 10"
+    Info (12134): Parameter "lpm_hint" = "RAM_BLOCK_TYPE=M9K"
+    Info (12134): Parameter "lpm_numwords" = "512"
+    Info (12134): Parameter "lpm_showahead" = "OFF"
+    Info (12134): Parameter "lpm_type" = "scfifo"
+    Info (12134): Parameter "lpm_width" = "8"
+    Info (12134): Parameter "lpm_widthu" = "9"
+    Info (12134): Parameter "overflow_checking" = "ON"
+    Info (12134): Parameter "underflow_checking" = "ON"
+    Info (12134): Parameter "use_eab" = "ON"
+Info (12021): Found 1 design units, including 1 entities, in source file db/scfifo_1s61.tdf
+    Info (12023): Found entity 1: scfifo_1s61 File: C:/Users/XORID/OneDrive - The University of Western Australia/21, M2-Win/ELEC5552 Elctrial Project/Code/FPGA/db/scfifo_1s61.tdf Line: 24
+Info (12128): Elaborating entity "scfifo_1s61" for hierarchy "FIFO_BRAM:fifo_b|scfifo:scfifo_component|scfifo_1s61:auto_generated" File: c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/scfifo.tdf Line: 299
+Info (12021): Found 1 design units, including 1 entities, in source file db/a_dpfifo_b651.tdf
+    Info (12023): Found entity 1: a_dpfifo_b651 File: C:/Users/XORID/OneDrive - The University of Western Australia/21, M2-Win/ELEC5552 Elctrial Project/Code/FPGA/db/a_dpfifo_b651.tdf Line: 28
+Info (12128): Elaborating entity "a_dpfifo_b651" for hierarchy "FIFO_BRAM:fifo_b|scfifo:scfifo_component|scfifo_1s61:auto_generated|a_dpfifo_b651:dpfifo" File: C:/Users/XORID/OneDrive - The University of Western Australia/21, M2-Win/ELEC5552 Elctrial Project/Code/FPGA/db/scfifo_1s61.tdf Line: 36
+Info (12021): Found 1 design units, including 1 entities, in source file db/a_fefifo_t7e.tdf
+    Info (12023): Found entity 1: a_fefifo_t7e File: C:/Users/XORID/OneDrive - The University of Western Australia/21, M2-Win/ELEC5552 Elctrial Project/Code/FPGA/db/a_fefifo_t7e.tdf Line: 24
+Info (12128): Elaborating entity "a_fefifo_t7e" for hierarchy "FIFO_BRAM:fifo_b|scfifo:scfifo_component|scfifo_1s61:auto_generated|a_dpfifo_b651:dpfifo|a_fefifo_t7e:fifo_state" File: C:/Users/XORID/OneDrive - The University of Western Australia/21, M2-Win/ELEC5552 Elctrial Project/Code/FPGA/db/a_dpfifo_b651.tdf Line: 41
+Info (12021): Found 1 design units, including 1 entities, in source file db/cntr_637.tdf
+    Info (12023): Found entity 1: cntr_637 File: C:/Users/XORID/OneDrive - The University of Western Australia/21, M2-Win/ELEC5552 Elctrial Project/Code/FPGA/db/cntr_637.tdf Line: 25
+Info (12128): Elaborating entity "cntr_637" for hierarchy "FIFO_BRAM:fifo_b|scfifo:scfifo_component|scfifo_1s61:auto_generated|a_dpfifo_b651:dpfifo|a_fefifo_t7e:fifo_state|cntr_637:count_usedw" File: C:/Users/XORID/OneDrive - The University of Western Australia/21, M2-Win/ELEC5552 Elctrial Project/Code/FPGA/db/a_fefifo_t7e.tdf Line: 37
+Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_7rn1.tdf
+    Info (12023): Found entity 1: altsyncram_7rn1 File: C:/Users/XORID/OneDrive - The University of Western Australia/21, M2-Win/ELEC5552 Elctrial Project/Code/FPGA/db/altsyncram_7rn1.tdf Line: 27
+Info (12128): Elaborating entity "altsyncram_7rn1" for hierarchy "FIFO_BRAM:fifo_b|scfifo:scfifo_component|scfifo_1s61:auto_generated|a_dpfifo_b651:dpfifo|altsyncram_7rn1:FIFOram" File: C:/Users/XORID/OneDrive - The University of Western Australia/21, M2-Win/ELEC5552 Elctrial Project/Code/FPGA/db/a_dpfifo_b651.tdf Line: 42
+Info (12021): Found 1 design units, including 1 entities, in source file db/cntr_q2b.tdf
+    Info (12023): Found entity 1: cntr_q2b File: C:/Users/XORID/OneDrive - The University of Western Australia/21, M2-Win/ELEC5552 Elctrial Project/Code/FPGA/db/cntr_q2b.tdf Line: 25
+Info (12128): Elaborating entity "cntr_q2b" for hierarchy "FIFO_BRAM:fifo_b|scfifo:scfifo_component|scfifo_1s61:auto_generated|a_dpfifo_b651:dpfifo|cntr_q2b:rd_ptr_count" File: C:/Users/XORID/OneDrive - The University of Western Australia/21, M2-Win/ELEC5552 Elctrial Project/Code/FPGA/db/a_dpfifo_b651.tdf Line: 43
+Info (12128): Elaborating entity "Controller" for hierarchy "Controller:con" File: C:/Users/XORID/OneDrive - The University of Western Australia/21, M2-Win/ELEC5552 Elctrial Project/Code/FPGA/FPGA.vhd Line: 198
+Warning (10492): VHDL Process Statement warning at Controller.vhd(31): signal "Reset" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/XORID/OneDrive - The University of Western Australia/21, M2-Win/ELEC5552 Elctrial Project/Code/FPGA/Controller.vhd Line: 31
+Warning (10492): VHDL Process Statement warning at Controller.vhd(39): signal "PS" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/XORID/OneDrive - The University of Western Australia/21, M2-Win/ELEC5552 Elctrial Project/Code/FPGA/Controller.vhd Line: 39
+Warning (10492): VHDL Process Statement warning at Controller.vhd(40): signal "PS_T" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/XORID/OneDrive - The University of Western Australia/21, M2-Win/ELEC5552 Elctrial Project/Code/FPGA/Controller.vhd Line: 40
+Warning (10492): VHDL Process Statement warning at Controller.vhd(55): signal "fifo_f" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/XORID/OneDrive - The University of Western Australia/21, M2-Win/ELEC5552 Elctrial Project/Code/FPGA/Controller.vhd Line: 55
+Warning (10492): VHDL Process Statement warning at Controller.vhd(67): signal "rx_dv" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/XORID/OneDrive - The University of Western Australia/21, M2-Win/ELEC5552 Elctrial Project/Code/FPGA/Controller.vhd Line: 67
+Warning (10631): VHDL Process Statement warning at Controller.vhd(45): inferring latch(es) for signal or variable "wr_en", which holds its previous value in one or more paths through the process File: C:/Users/XORID/OneDrive - The University of Western Australia/21, M2-Win/ELEC5552 Elctrial Project/Code/FPGA/Controller.vhd Line: 45
+Warning (10631): VHDL Process Statement warning at Controller.vhd(45): inferring latch(es) for signal or variable "RTS_X", which holds its previous value in one or more paths through the process File: C:/Users/XORID/OneDrive - The University of Western Australia/21, M2-Win/ELEC5552 Elctrial Project/Code/FPGA/Controller.vhd Line: 45
+Warning (10492): VHDL Process Statement warning at Controller.vhd(93): signal "fifo_e" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/XORID/OneDrive - The University of Western Australia/21, M2-Win/ELEC5552 Elctrial Project/Code/FPGA/Controller.vhd Line: 93
+Warning (10492): VHDL Process Statement warning at Controller.vhd(94): signal "CTS_C" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/XORID/OneDrive - The University of Western Australia/21, M2-Win/ELEC5552 Elctrial Project/Code/FPGA/Controller.vhd Line: 94
+Warning (10492): VHDL Process Statement warning at Controller.vhd(110): signal "tx_ac" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/XORID/OneDrive - The University of Western Australia/21, M2-Win/ELEC5552 Elctrial Project/Code/FPGA/Controller.vhd Line: 110
+Warning (10631): VHDL Process Statement warning at Controller.vhd(82): inferring latch(es) for signal or variable "rd_en", which holds its previous value in one or more paths through the process File: C:/Users/XORID/OneDrive - The University of Western Australia/21, M2-Win/ELEC5552 Elctrial Project/Code/FPGA/Controller.vhd Line: 82
+Warning (10631): VHDL Process Statement warning at Controller.vhd(82): inferring latch(es) for signal or variable "tx_dv", which holds its previous value in one or more paths through the process File: C:/Users/XORID/OneDrive - The University of Western Australia/21, M2-Win/ELEC5552 Elctrial Project/Code/FPGA/Controller.vhd Line: 82
+Info (10041): Inferred latch for "tx_dv" at Controller.vhd(82) File: C:/Users/XORID/OneDrive - The University of Western Australia/21, M2-Win/ELEC5552 Elctrial Project/Code/FPGA/Controller.vhd Line: 82
+Info (10041): Inferred latch for "rd_en" at Controller.vhd(82) File: C:/Users/XORID/OneDrive - The University of Western Australia/21, M2-Win/ELEC5552 Elctrial Project/Code/FPGA/Controller.vhd Line: 82
+Info (10041): Inferred latch for "RTS_X" at Controller.vhd(45) File: C:/Users/XORID/OneDrive - The University of Western Australia/21, M2-Win/ELEC5552 Elctrial Project/Code/FPGA/Controller.vhd Line: 45
+Info (10041): Inferred latch for "wr_en" at Controller.vhd(45) File: C:/Users/XORID/OneDrive - The University of Western Australia/21, M2-Win/ELEC5552 Elctrial Project/Code/FPGA/Controller.vhd Line: 45
+Info (12128): Elaborating entity "debounce" for hierarchy "debounce:debounce_rst" File: C:/Users/XORID/OneDrive - The University of Western Australia/21, M2-Win/ELEC5552 Elctrial Project/Code/FPGA/FPGA.vhd Line: 208
 Info (286030): Timing-Driven Synthesis is running
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Warning (21074): Design contains 9 input pin(s) that do not drive logic
-    Warning (15610): No output dependent on input pin "SW[1]" File: C:/Users/XORID/OneDrive - The University of Western Australia/21, M2-Win/ELEC5552 Elctrial Project/Code/FPGA/FPGA.vhd Line: 18
-    Warning (15610): No output dependent on input pin "SW[2]" File: C:/Users/XORID/OneDrive - The University of Western Australia/21, M2-Win/ELEC5552 Elctrial Project/Code/FPGA/FPGA.vhd Line: 18
-    Warning (15610): No output dependent on input pin "SW[3]" File: C:/Users/XORID/OneDrive - The University of Western Australia/21, M2-Win/ELEC5552 Elctrial Project/Code/FPGA/FPGA.vhd Line: 18
-    Warning (15610): No output dependent on input pin "SW[4]" File: C:/Users/XORID/OneDrive - The University of Western Australia/21, M2-Win/ELEC5552 Elctrial Project/Code/FPGA/FPGA.vhd Line: 18
-    Warning (15610): No output dependent on input pin "SW[5]" File: C:/Users/XORID/OneDrive - The University of Western Australia/21, M2-Win/ELEC5552 Elctrial Project/Code/FPGA/FPGA.vhd Line: 18
-    Warning (15610): No output dependent on input pin "SW[6]" File: C:/Users/XORID/OneDrive - The University of Western Australia/21, M2-Win/ELEC5552 Elctrial Project/Code/FPGA/FPGA.vhd Line: 18
-    Warning (15610): No output dependent on input pin "SW[7]" File: C:/Users/XORID/OneDrive - The University of Western Australia/21, M2-Win/ELEC5552 Elctrial Project/Code/FPGA/FPGA.vhd Line: 18
-    Warning (15610): No output dependent on input pin "SW[8]" File: C:/Users/XORID/OneDrive - The University of Western Australia/21, M2-Win/ELEC5552 Elctrial Project/Code/FPGA/FPGA.vhd Line: 18
-    Warning (15610): No output dependent on input pin "SW[9]" File: C:/Users/XORID/OneDrive - The University of Western Australia/21, M2-Win/ELEC5552 Elctrial Project/Code/FPGA/FPGA.vhd Line: 18
-Info (21057): Implemented 274 device resources after synthesis - the final resource count might be different
-    Info (21058): Implemented 15 input pins
+Info (21057): Implemented 255 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 6 input pins
     Info (21059): Implemented 4 output pins
-    Info (21061): Implemented 255 logic cells
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 27 warnings
-    Info: Peak virtual memory: 4842 megabytes
-    Info: Processing ended: Tue Oct 05 01:48:32 2021
-    Info: Elapsed time: 00:00:10
-    Info: Total CPU time (on all processors): 00:00:19
+    Info (21061): Implemented 237 logic cells
+    Info (21064): Implemented 8 RAM segments
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 13 warnings
+    Info: Peak virtual memory: 4838 megabytes
+    Info: Processing ended: Fri Oct 15 16:50:38 2021
+    Info: Elapsed time: 00:00:11
+    Info: Total CPU time (on all processors): 00:00:21
 
 

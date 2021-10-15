@@ -12,15 +12,23 @@
 					"strict" : false
 				},
 				{
-					"name" : "MAX10_CLK1_50",
-					"strict" : false
-				},
-				{
-					"name" : "SW[0]",
-					"strict" : false
-				},
-				{
 					"name" : "RTS_X",
+					"strict" : false
+				},
+				{
+					"name" : "RTS_C",
+					"strict" : false
+				},
+				{
+					"name" : "CTS_X",
+					"strict" : false
+				},
+				{
+					"name" : "clk",
+					"strict" : false
+				},
+				{
+					"name" : "res",
 					"strict" : false
 				},
 				{
