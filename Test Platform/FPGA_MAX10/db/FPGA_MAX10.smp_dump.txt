@@ -1,0 +1,46 @@
+
+State Machine - |FPGA_MAX10|Controller:con|PS_T
+Name PS_T.tx_done PS_T.idle PS_T.tx_ready PS_T.tx PS_T.int 
+PS_T.int 0 0 0 0 0 
+PS_T.tx 0 0 0 1 1 
+PS_T.tx_ready 0 0 1 0 1 
+PS_T.idle 0 1 0 0 1 
+PS_T.tx_done 1 0 0 0 1 
+
+State Machine - |FPGA_MAX10|Controller:con|PS
+Name PS.idle PS.rx PS.int 
+PS.int 0 0 0 
+PS.rx 0 1 1 
+PS.idle 1 0 1 
+
+State Machine - |FPGA_MAX10|UART_TX:UART_TX_CC|r_SM_Main
+Name r_SM_Main.s_Cleanup r_SM_Main.s_TX_Stop_Bit r_SM_Main.s_TX_Data_Bits r_SM_Main.s_TX_Start_Bit r_SM_Main.s_Idle 
+r_SM_Main.s_Idle 0 0 0 0 0 
+r_SM_Main.s_TX_Start_Bit 0 0 0 1 1 
+r_SM_Main.s_TX_Data_Bits 0 0 1 0 1 
+r_SM_Main.s_TX_Stop_Bit 0 1 0 0 1 
+r_SM_Main.s_Cleanup 1 0 0 0 1 
+
+State Machine - |FPGA_MAX10|UART_RX:UART_RX_CC|r_SM_Main
+Name r_SM_Main.s_Cleanup r_SM_Main.s_RX_Stop_Bit r_SM_Main.s_RX_Data_Bits r_SM_Main.s_RX_Start_Bit r_SM_Main.s_Idle 
+r_SM_Main.s_Idle 0 0 0 0 0 
+r_SM_Main.s_RX_Start_Bit 0 0 0 1 1 
+r_SM_Main.s_RX_Data_Bits 0 0 1 0 1 
+r_SM_Main.s_RX_Stop_Bit 0 1 0 0 1 
+r_SM_Main.s_Cleanup 1 0 0 0 1 
+
+State Machine - |FPGA_MAX10|UART_TX:UART_TX_XP|r_SM_Main
+Name r_SM_Main.s_Cleanup r_SM_Main.s_TX_Stop_Bit r_SM_Main.s_TX_Data_Bits r_SM_Main.s_TX_Start_Bit r_SM_Main.s_Idle 
+r_SM_Main.s_Idle 0 0 0 0 0 
+r_SM_Main.s_TX_Start_Bit 0 0 0 1 1 
+r_SM_Main.s_TX_Data_Bits 0 0 1 0 1 
+r_SM_Main.s_TX_Stop_Bit 0 1 0 0 1 
+r_SM_Main.s_Cleanup 1 0 0 0 1 
+
+State Machine - |FPGA_MAX10|UART_RX:UART_RX_XP|r_SM_Main
+Name r_SM_Main.s_Cleanup r_SM_Main.s_RX_Stop_Bit r_SM_Main.s_RX_Data_Bits r_SM_Main.s_RX_Start_Bit r_SM_Main.s_Idle 
+r_SM_Main.s_Idle 0 0 0 0 0 
+r_SM_Main.s_RX_Start_Bit 0 0 0 1 1 
+r_SM_Main.s_RX_Data_Bits 0 0 1 0 1 
+r_SM_Main.s_RX_Stop_Bit 0 1 0 0 1 
+r_SM_Main.s_Cleanup 1 0 0 0 1 
