@@ -1,5 +1,7 @@
 # RF-BRIDGE-UWA-ELEC5552-PROJECT2-TEAM4
-RF BRIDGE
+Ethernet-to-RF BRIDGE
+
+It is a project of UWA students, group 4 in 2021
 
 For Test Platform (DE10-lite)
 	Loopback with XPORT and FPGA attached:
